@@ -12,6 +12,7 @@ harjoitteet/
   <tunniste>/
     harjoite.md             # frontmatter + kuvaus
     kaavio.svg              # kenttäkaavio (valinnainen)
+    piirra_kaavio.py        # kaavion piirtoskripti (kun kaavio on)
     variaatiot.md           # helpotukset/vaikeutukset (valinnainen)
 .claude/skills/
   harjoite-laadinta/        # uuden harjoitteen laatiminen
@@ -19,6 +20,7 @@ harjoitteet/
   harjoitekaavio/           # kenttäkaaviot (tyyli D)
 schema/harjoite.schema.json # frontmatterin rakenne
 tools/tarkista.py           # tarkistus (ajetaan myös GitHub Actionsissa)
+tools/kaavio.py             # kaaviokirjasto (tyyli D)
 ```
 
 ## Toimintaohjeet
@@ -34,7 +36,12 @@ tools/tarkista.py           # tarkistus (ajetaan myös GitHub Actionsissa)
 - Kaaviot piirretään harjoitekaavio-skillillä (tyyli D), roolit merkitään
   lyhenteillä 1H–3H ja 1P–3P, kaistat lyhenteillä VLK, VSLK, KK, OSLK, OLK.
   Tässä repossa kaavio tallennetaan harjoitteen kansioon nimellä `kaavio.svg`
-  (ei skillin oletuspolkuun `kaaviot/NN-nimi.svg`).
+  (ei skillin oletuspolkuun `kaaviot/NN-nimi.svg`). Käytä kirjastoa
+  `tools/kaavio.py` (älä kirjoita sitä uudelleen) ja tallenna piirtoskripti
+  harjoitteen kansioon nimellä `piirra_kaavio.py`, mallina
+  `harjoitteet/vapautuminen-varjosta-2v2/piirra_kaavio.py`.
+  Esikatselu-PNG: `python harjoitteet/<tunniste>/piirra_kaavio.py --png`
+  (PNG:t eivät mene repoon).
 - Aja `python tools/tarkista.py` aina harjoitteen tai sanaston muuttamisen jälkeen
   ja korjaa virheet ennen committia.
 
