@@ -26,7 +26,10 @@ Jos käyttäjä antaa vapaan kuvauksen, päättele luokittelu ja näytä se hyv�
 - Tunniste: pienet kirjaimet, ei ääkkösiä, väliviivat. Tarkista, ettei kansiota ole jo.
 - Kopioi `harjoitteet/_malli/harjoite.md` → `harjoitteet/<tunniste>/harjoite.md` ja täytä.
 - Valmennuspisteet kirjoitetaan pelin keskuksen roolien kautta.
-- Jos käyttäjä haluaa kaavion, käytä harjoitekaavio-skilliä ja tallenna `kaavio.svg` samaan kansioon.
+- Jos käyttäjä haluaa kaavion, käytä harjoitekaavio-skilliä ja kirjastoa `tools/kaavio.py`;
+  tallenna `kaavio.svg` ja `piirra_kaavio.py` samaan kansioon.
+- Kun kaavio on, lisää `harjoite.md`:hen pääotsikon alle kuvaviittaus
+  `![<nimi>](kaavio.svg)`. Jos kaaviota ei ole, poista pohjan kuvaviittausrivi.
 - Helpotukset ja vaikeutukset tarvittaessa `variaatiot.md`:hen.
 
 ## 5. Älä kirjoita

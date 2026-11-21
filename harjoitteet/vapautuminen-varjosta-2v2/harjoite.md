@@ -18,6 +18,8 @@ valineet: [pallot, kartiot, liivit]
 
 # Vapautuminen varjosta 2v2
 
+![Vapautuminen varjosta 2v2](kaavio.svg)
+
 ## Tavoite
 Keskipelaajat oppivat irtautumaan puolustajan varjosta syöttölinjalle ja
 valmistelemaan ensimmäisen kosketuksen niin, että pallo jatkaa päädystä

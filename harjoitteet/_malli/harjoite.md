@@ -20,6 +20,8 @@ valineet: [pallot, kartiot, liivit, minimaalit]
 
 # Harjoitteen nimi
 
+![Harjoitteen nimi](kaavio.svg)   <!-- poista, jos kaaviota ei ole -->
+
 ## Tavoite
 Mitä pelaaja oppii ja missä pelin tilanteessa.
 
