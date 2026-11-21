@@ -30,8 +30,10 @@ ja molemmat joukkueet nopeaa roolinvaihtoa riiston jälkeen.
 - Neliö 15 × 15 m, kartiot kulmissa.
 - 8 pelaajaa, kaksi neljän hengen joukkuetta (toisella liivit).
 - Kummallakin joukkueella kaksi päätypelaajaa ja kaksi keskipelaajaa.
-- Joukkue 1:n päätypelaajat ovat kahdella vastakkaisella sivulla, joukkue 2:n
-  kahdella muulla sivulla – joukkueet pelaavat ristiin.
+- Joukkue 1 (punainen, aloittaa hyökkääjänä): päätypelaajat kahdella
+  vastakkaisella sivulla.
+- Joukkue 2 (sininen, aloittaa puolustajana): päätypelaajat kahdella muulla
+  sivulla – joukkueet pelaavat ristiin.
 - Valmentaja pallovaraston kanssa ruudun ulkopuolella.
 
 ## Kulku

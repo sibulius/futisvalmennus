@@ -22,7 +22,7 @@ Kaikki harjoitekaaviot piirretään tällä tyylillä ja alla olevalla kirjastol
 | Tausta | Koko kuva tummanvihreä #4f8a3a, kenttä vaaleampi #6db24f, valkoiset rajat |
 | Otsikko | Vasemmalla ylhäällä, valkoinen: "Nro. Harjoitteen nimi" (sarjassa esim. "1A-3. ...") |
 | Mitat | Kaksipäiset valkoiset nuolet: leveys yläpuolella, pituus oikealla (`dim()`) |
-| Pelaajat | A punainen = hyökkääjä / joukkue 1, B sininen = puolustaja / joukkue 2, C keltainen = neutraali / syöttäjä / joukkue 3, V vihreä = maalivahti, K harmaa = valmentaja |
+| Pelaajat | A punainen = hyökkääjä (aina), B sininen = puolustaja (aina), C keltainen = neutraali / syöttäjä / joukkue 3, V vihreä = maalivahti, K harmaa = valmentaja |
 | Roolikirjaimet | H hyökkääjä, P puolustaja, S syöttäjä, L laitapelaaja, N neutraali, MV maalivahti, V valmentaja. Vain kun rooli on olennainen. |
 | Jonot | Odottavat pelaajat jonona lähtöpisteen takana (`queue()`) |
 | Maalit | Vaaleat täytetyt suorakulmiot rajan ulkopuolella. Iso maali `big=True` (5 m sali/halli, 7 m ulkona 8v8), pikkumaali 2–3 m |

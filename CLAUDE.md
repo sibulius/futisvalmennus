@@ -42,6 +42,10 @@ tools/kaavio.py             # kaaviokirjasto (tyyli D)
   `harjoitteet/vapautuminen-varjosta-2v2/piirra_kaavio.py`.
   Esikatselu-PNG: `python harjoitteet/<tunniste>/piirra_kaavio.py --png`
   (PNG:t eivät mene repoon).
+- Kaavioiden värit: hyökkääjät ovat AINA punaisia (`"A"`) ja puolustajat
+  AINA sinisiä (`"B"`), myös silloin kun joukkueet vaihtavat rooleja kesken
+  harjoitteen – kaavio kuvaa aloitustilanteen. Neutraalit/syöttäjät keltaisia
+  (`"C"`), maalivahdit vihreitä (`"V"`), valmentaja harmaa (`"K"`).
 - Aja `python tools/tarkista.py` aina harjoitteen tai sanaston muuttamisen jälkeen
   ja korjaa virheet ennen committia.
 
