@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/sibulius/futisvalmennus/schema/harjoite.schema.json",
+  "title": "Harjoitteen frontmatter",
+  "description": "Rakenne. Sallitut arvot (vaiheet, alavaiheet, alueet, kaistat, roolit, tilanteet, puolet, tehtävät) lisätään sanasto.yml:stä tarkistusskriptissä.",
+  "type": "object",
+  "required": ["tunniste", "nimi", "vaihe", "alavaihe", "painopiste", "kesto_min", "pelaajat"],
+  "additionalProperties": false,
+  "properties": {
+    "tunniste": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+    "nimi": { "type": "string", "minLength": 3 },
+    "vaihe": { "type": "string" },
+    "alavaihe": { "type": "string" },
+    "alue": { "type": "string" },
+    "kaistat": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "pelin_keskus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tilanne", "roolit"],
+      "properties": {
+        "tilanne": { "type": "string", "pattern": "^[1-9]v[1-9]$" },
+        "roolit": { "type": "array", "items": { "type": "string" }, "minItems": 1, "uniqueItems": true },
+        "vastaroolit": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+      }
+    },
+    "puoli": { "type": "string" },
+    "tehtavat": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "painopiste": { "type": "string", "minLength": 3 },
+    "ika": { "type": "array", "items": { "type": "string", "pattern": "^[PT][0-9]{1,2}$" }, "uniqueItems": true },
+    "kesto_min": { "type": "integer", "minimum": 1, "maximum": 120 },
+    "pelaajat": { "type": "integer", "minimum": 1, "maximum": 40 },
+    "valineet": { "type": "array", "items": { "type": "string" } }
+  }
+}

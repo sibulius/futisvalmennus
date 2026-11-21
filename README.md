@@ -26,7 +26,10 @@ Täydet määritelmät ja säännöt: [`sanasto.yml`](sanasto.yml).
 2. Täytä frontmatter `sanasto.yml`:n arvoilla ja kirjoita kuvaus.
 3. Lisää halutessasi `kaavio.svg` ja `variaatiot.md`.
 
-Claude Codella sama hoituu `harjoite-laadinta`-skillillä.
+4. Aja tarkistus: `pip install pyyaml jsonschema && python tools/tarkista.py`
+
+Claude Codella sama hoituu `harjoite-laadinta`-skillillä. GitHub Actions ajaa
+tarkistuksen jokaisesta pushista ja pull requestista.
 
 ## Lisenssit
 

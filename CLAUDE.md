@@ -16,6 +16,9 @@ harjoitteet/
 .claude/skills/
   harjoite-laadinta/        # uuden harjoitteen laatiminen
   harjoituspaiva-kokoaminen/# harjoituspäivän kokoaminen pankista
+  harjoitekaavio/           # kenttäkaaviot (tyyli D)
+schema/harjoite.schema.json # frontmatterin rakenne
+tools/tarkista.py           # tarkistus (ajetaan myös GitHub Actionsissa)
 ```
 
 ## Toimintaohjeet
@@ -30,6 +33,10 @@ harjoitteet/
 - Uusi harjoite tehdään `harjoite-laadinta`-skillillä ja pohjasta `harjoitteet/_malli/`.
 - Kaaviot piirretään harjoitekaavio-skillillä (tyyli D), roolit merkitään
   lyhenteillä 1H–3H ja 1P–3P, kaistat lyhenteillä VLK, VSLK, KK, OSLK, OLK.
+  Tässä repossa kaavio tallennetaan harjoitteen kansioon nimellä `kaavio.svg`
+  (ei skillin oletuspolkuun `kaaviot/NN-nimi.svg`).
+- Aja `python tools/tarkista.py` aina harjoitteen tai sanaston muuttamisen jälkeen
+  ja korjaa virheet ennen committia.
 
 ## Tärkeät termit
 

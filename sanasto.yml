@@ -134,4 +134,5 @@ saannot:
   - Kaistat ovat vapaaehtoisia; merkitään vain, kun harjoite kohdistuu tiettyihin kaistoihin.
   - Vasen ja oikea katsotaan aina harjoittelevan joukkueen hyökkäyssuuntaan, myös puolustusharjoitteissa.
   - Pienpeleissä kaistojen leveys suhteutetaan kenttään; jako (5 kaistaa) pysyy samana.
+  - Tilanne ilmoitetaan aina hyökkääjät v puolustajat (2v1 = kaksi hyökkääjää, yksi puolustaja), myös puolustusharjoitteissa.
   - Tilanteen lukumäärä ja roolit eivät saa olla ristiriidassa (esim. 2v1 → enintään 1H–2H vastaan 1P).
