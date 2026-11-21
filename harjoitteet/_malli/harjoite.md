@@ -4,6 +4,7 @@ nimi: Harjoitteen nimi
 vaihe: hyokkaaminen             # sanasto.yml → vaiheet
 alavaihe: murtautuminen         # vaiheen alavaiheet
 alue: hyokkayskolmannes         # sanasto.yml → alueet
+paineistaminen: aktiivinen      # ei | passiivinen | puoliaktiivinen | aktiivinen
 kaistat: []                     # valinnainen, esim. [oikea_laitakaista, oikea_sisempi_laitakaista]
 pelin_keskus:
   tilanne: 2v1                  # sanasto.yml → pelin_keskus.tilanteet

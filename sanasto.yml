@@ -32,6 +32,13 @@ pelin_keskus:
       3P: 3. puolustaja    # tasapaino, tilan peitto
   tilanteet: [1v1, 2v1, 1v2, 2v2, 3v1, 3v2, 2v3, 3v3]
 
+# --- Paineistaminen --------------------------------------------------------
+paineistaminen:
+  ei: Ei paineistusta – vastustajia ei ole
+  passiivinen: Vastustajat ovat mukana, mutta eivät riistä (esim. kuljettavat omaa palloa)
+  puoliaktiivinen: Vastustajat saavat katkaista syöttöjä, mutta eivät riistä pallolliselta
+  aktiivinen: Täysi paineistaminen ja riisto
+
 # --- Pelin vaiheet ja alavaiheet ------------------------------------------
 vaiheet:
 
@@ -131,6 +138,7 @@ saannot:
   - "Rakentaminen = keskikolmanneksen vaihe, ei omalta alueelta avaamista (se on avaaminen)."
   - Vakiotilanteen kuviota opettava harjoite on vakiotilanne; vakiotilanteen jälkeistä peliä opettava luokitellaan alavaiheen mukaan.
   - Roolien on kuuluttava vaiheen sallittuihin rooleihin; siirtymissä sekä H- että P-roolit ovat sallittuja.
+  - Paineistaminen merkitään jokaiseen harjoitteeseen; kun paineistaminen on 'ei', vastarooleja ei ole.
   - Kaistat ovat vapaaehtoisia; merkitään vain, kun harjoite kohdistuu tiettyihin kaistoihin.
   - Ikäluokat merkitään sukupuolineutraalisti U-merkinnällä (esim. U12, U13).
   - Vasen ja oikea katsotaan aina harjoittelevan joukkueen hyökkäyssuuntaan, myös puolustusharjoitteissa.

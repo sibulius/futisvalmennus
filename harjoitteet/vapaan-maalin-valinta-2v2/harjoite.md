@@ -4,6 +4,7 @@ nimi: Vapaan maalin valinta 2v2
 vaihe: hyokkaaminen
 alavaihe: murtautuminen
 alue: hyokkayskolmannes
+paineistaminen: aktiivinen
 kaistat: []
 pelin_keskus:
   tilanne: 2v2

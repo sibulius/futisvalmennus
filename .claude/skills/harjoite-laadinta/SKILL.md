@@ -19,6 +19,7 @@ Jos käyttäjä antaa vapaan kuvauksen, päättele luokittelu ja näytä se hyv�
 - Yksi päävaihe ja yksi alavaihe.
 - Roolit kuuluvat vaiheen `sallitut_roolit`-listaan.
 - Tilanteen lukumäärä ja roolit eivät ole ristiriidassa (2v1 → 1H, 2H vs. 1P).
+- Paineistaminen: ei, passiivinen, puoliaktiivinen tai aktiivinen (sanasto.yml).
 - Kaistat vain, jos harjoite kohdistuu niihin; vasen/oikea hyökkäyssuuntaan.
 - Vakiotilanteissa `puoli` ja `tehtavat`.
 

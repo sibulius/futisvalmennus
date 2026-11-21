@@ -4,6 +4,7 @@ nimi: Loppupeli 2v2
 vaihe: hyokkaaminen
 alavaihe: rakentaminen
 alue: koko_kentta
+paineistaminen: aktiivinen
 kaistat: []
 pelin_keskus:
   tilanne: 2v2

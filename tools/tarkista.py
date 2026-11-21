@@ -72,6 +72,7 @@ def rakenna_skeema(s: dict) -> dict:
     pk["tilanne"]["enum"] = s["pelin_keskus"]["tilanteet"]
     pk["roolit"]["items"]["enum"] = roolit
     pk["vastaroolit"]["items"]["enum"] = roolit
+    pr["paineistaminen"]["enum"] = list(s["paineistaminen"])
     pr["puoli"]["enum"] = vakio.get("puolet", [])
     pr["tehtavat"]["items"]["enum"] = vakio.get("tehtavat", [])
     return sk
@@ -112,6 +113,8 @@ def tarkista_harjoite(polku: Path, fm: dict, s: dict, validoija) -> None:
         for r in roolit:
             if r not in sallitut:
                 virhe(p, f"rooli '{r}' ei ole sallittu vaiheessa '{fm['vaihe']}'")
+    if fm.get("paineistaminen") == "ei" and pk.get("vastaroolit"):
+        virhe(p, "paineistaminen 'ei', mutta vastarooleja on merkitty")
     m = re.match(r"^(\d)v(\d)$", str(pk.get("tilanne", "")))
     if m:
         hyok, puol = int(m.group(1)), int(m.group(2))

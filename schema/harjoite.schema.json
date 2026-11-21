@@ -2,9 +2,9 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/sibulius/futisvalmennus/schema/harjoite.schema.json",
   "title": "Harjoitteen frontmatter",
-  "description": "Rakenne. Sallitut arvot (vaiheet, alavaiheet, alueet, kaistat, roolit, tilanteet, puolet, tehtävät) lisätään sanasto.yml:stä tarkistusskriptissä.",
+  "description": "Rakenne. Sallitut arvot (vaiheet, alavaiheet, alueet, kaistat, roolit, tilanteet, paineistaminen, puolet, tehtävät) lisätään sanasto.yml:stä tarkistusskriptissä.",
   "type": "object",
-  "required": ["tunniste", "nimi", "vaihe", "alavaihe", "painopiste", "kesto_min", "pelaajat"],
+  "required": ["tunniste", "nimi", "vaihe", "alavaihe", "paineistaminen", "painopiste", "kesto_min", "pelaajat"],
   "additionalProperties": false,
   "properties": {
     "tunniste": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
@@ -27,6 +27,7 @@
         "vastaroolit": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
       }
     },
+    "paineistaminen": { "type": "string" },
     "puoli": { "type": "string" },
     "tehtavat": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
     "painopiste": { "type": "string", "minLength": 3 },
