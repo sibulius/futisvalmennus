@@ -12,7 +12,7 @@ pelin_keskus:
 # puoli: hyokkaava              # vain vakiotilanteissa
 # tehtavat: []                  # vain vakiotilanteissa
 painopiste: Lyhyt kuvaus opetettavasta asiasta
-ika: []                         # esim. [P11, P12]
+ika: []                         # esim. [U12, U13]
 kesto_min: 15
 pelaajat: 10
 valineet: [pallot, kartiot, liivit, minimaalit]

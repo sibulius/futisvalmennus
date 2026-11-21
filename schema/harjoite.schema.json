@@ -30,7 +30,7 @@
     "puoli": { "type": "string" },
     "tehtavat": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
     "painopiste": { "type": "string", "minLength": 3 },
-    "ika": { "type": "array", "items": { "type": "string", "pattern": "^[PT][0-9]{1,2}$" }, "uniqueItems": true },
+    "ika": { "type": "array", "items": { "type": "string", "pattern": "^U[0-9]{1,2}$" }, "uniqueItems": true },
     "kesto_min": { "type": "integer", "minimum": 1, "maximum": 120 },
     "pelaajat": { "type": "integer", "minimum": 1, "maximum": 40 },
     "valineet": { "type": "array", "items": { "type": "string" } }
