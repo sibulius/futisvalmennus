@@ -11,6 +11,7 @@
   const alavaihe = lomake.elements.alavaihe;          // select tai radionapit
   const kentat = ["haku", "vaihe", "alavaihe", "alue", "tilanne", "rooli",
                   "paineistaminen", "ika", "kaista", "puoli", "kesto", "pelaajat"];
+  const kaikkiaan = new Set(kortit.map((k) => k.dataset.tunniste)).size;
   const lisaKentat = kentat.filter((k) => k !== "vaihe" && k !== "alavaihe");
 
   function arvot() {
@@ -25,7 +26,9 @@
   function sopii(d, a) {
     const lista = (s) => (s ? s.split(" ") : []);
     if (a.haku && !d.teksti.includes(a.haku.toLowerCase())) return false;
-    for (const k of ["vaihe", "alavaihe", "alue", "tilanne", "paineistaminen", "puoli"]) {
+    if (a.vaihe && !lista(d.vaiheet).includes(a.vaihe)) return false;
+    if (a.alavaihe && !lista(d.alavaiheet).includes(a.alavaihe)) return false;
+    for (const k of ["alue", "tilanne", "paineistaminen", "puoli"]) {
       if (a[k] && d[k] !== a[k]) return false;
     }
     if (a.rooli && !lista(d.roolit).includes(a.rooli)) return false;
@@ -50,14 +53,16 @@
   function paivita(tallenna) {
     paivitaAlavaiheet();
     const a = arvot();
-    let n = 0;
+    // Sama harjoite voi olla kahdessa ryhmässä (myos_alavaiheet): lasketaan tunnisteet.
+    const nakyvat = new Set();
     for (const k of kortit) {
       const nakyy = sopii(k.dataset, a);
       k.hidden = !nakyy;
-      if (nakyy) n++;
+      if (nakyy) nakyvat.add(k.dataset.tunniste);
     }
+    const n = nakyvat.size;
     for (const r of ryhmat) r.hidden = !r.querySelector(".kortti:not([hidden])");
-    maara.textContent = n + " / " + kortit.length + " harjoitetta";
+    maara.textContent = n + " / " + kaikkiaan + " harjoitetta";
     tyhja.hidden = n !== 0;
     if (tallenna) {
       const q = new URLSearchParams(a).toString();

@@ -1,7 +1,8 @@
 {# Harjoitekortti; data-attribuutit suodatusta varten. #}
 {% set pk = h.pelin_keskus or {} %}
 <li class="kortti"
-    data-vaihe="{{ h.vaihe }}" data-alavaihe="{{ h.alavaihe }}" data-alue="{{ h.alue or '' }}"
+    data-tunniste="{{ h.tunniste }}" data-vaiheet="{{ h.kaikki_vaiheet | join(' ') }}"
+    data-alavaiheet="{{ ryhma or h.kaikki_alavaiheet | join(' ') }}" data-alue="{{ h.alue or '' }}"
     data-tilanne="{{ pk.tilanne or '' }}"
     data-roolit="{{ ((pk.roolit or []) + (pk.vastaroolit or [])) | join(' ') }}"
     data-paineistaminen="{{ h.paineistaminen }}" data-ika="{{ (h.ika or []) | join(' ') }}"
@@ -12,7 +13,8 @@
     {% if h.kaavio %}<img src="{{ juuri }}harjoitteet/{{ h.tunniste }}/kaavio.svg" alt="" loading="lazy">{% endif %}
     <div class="kortti-teksti">
       <h3>{{ h.nimi }}</h3>
-      {% if not vaihe %}<p class="luokka">{{ sn.vaihe(h.vaihe) }} · {{ sn.alavaihe(h.alavaihe) }}</p>{% endif %}
+      {% if not vaihe %}<p class="luokka">{{ sn.vaihe(h.vaihe) }} · {{ sn.alavaihe(h.alavaihe) }}{% if h.myos_alavaiheet %} <span class="myos">(myös {% for a in h.myos_alavaiheet %}{{ sn.alavaihe(a) }}{{ ", " if not loop.last }}{% endfor %})</span>{% endif %}</p>
+      {% elif ryhma and ryhma != h.alavaihe %}<p class="luokka myos">Pääluokka: {{ sn.alavaihe(h.alavaihe) }}</p>{% endif %}
       <p class="kortti-painopiste">{{ h.painopiste }}</p>
       <ul class="merkit">
         {% if pk.tilanne %}<li>{{ pk.tilanne }}</li>{% endif %}

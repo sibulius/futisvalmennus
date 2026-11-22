@@ -101,6 +101,7 @@ button { width: auto; cursor: pointer; align-self: end; }
 .kortti h2, .kortti h3 { font-size: 1.02rem; margin: 0 0 2px; }
 .kortti p { margin: 0 0 6px; font-size: .9rem; }
 .kortti .luokka { color: var(--korostus); font-size: .8rem; font-weight: 600; }
+.kortti .myos, .kortti .luokka.myos { color: var(--heikko); font-weight: 400; }
 .kortti-painopiste { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .merkit { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 4px; }
 .merkit li { background: var(--korostus-tausta); border-radius: 999px; padding: 0 8px; font-size: .75rem; }

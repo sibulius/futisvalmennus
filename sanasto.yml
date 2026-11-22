@@ -146,6 +146,7 @@ vaiheet:
 # --- Luokittelusäännöt (skillit ja CLAUDE.md) -----------------------------
 saannot:
   - Harjoitteella on yksi päävaihe ja yksi alavaihe, vaikka se sivuaisi muitakin.
+  - Jos harjoite opettaa selvästi myös toista alavaihetta, se merkitään kenttään myos_alavaiheet (enintään 2). Pelkkää sivuamista ei merkitä; pääluokitus ratkaisee alueen ja roolit.
   - "Rakentaminen = keskikolmanneksen vaihe, ei omalta alueelta avaamista (se on avaaminen)."
   - Tekniikka = tekninen drilli, jossa ei ole pelin vaihetta eikä pelin keskusta; alavaihe on harjoiteltava taito. Pelin keskusta ja aluetta ei merkitä, ja paineistaminen on yleensä 'ei'.
   - Vakiotilanteen kuviota opettava harjoite on vakiotilanne; vakiotilanteen jälkeistä peliä opettava luokitellaan alavaiheen mukaan.

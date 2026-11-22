@@ -11,6 +11,7 @@ pelaajamäärä, ikäluokka ja käytettävissä oleva kenttä. Lue `sanasto.yml`
 
 ## 2. Hae harjoitteet
 Suodata `harjoitteet/*/harjoite.md` frontmatterin perusteella. Ohita `_malli`.
+Alavaiheella haettaessa huomioi `alavaihe`-kentän lisäksi `myos_alavaiheet`.
 
 ## 3. Rakenna eteneminen
 - Tekniikkaharjoitteet (`vaihe: tekniikka`) sopivat lämmittelyyn tai rastiksi,

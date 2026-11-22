@@ -11,6 +11,13 @@
     "nimi": { "type": "string", "minLength": 3 },
     "vaihe": { "type": "string" },
     "alavaihe": { "type": "string" },
+    "myos_alavaiheet": {
+      "description": "Toissijaiset alavaiheet, joita harjoite opettaa selvästi myös (valinnainen).",
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true,
+      "maxItems": 2
+    },
     "alue": { "type": "string" },
     "kaistat": {
       "type": "array",

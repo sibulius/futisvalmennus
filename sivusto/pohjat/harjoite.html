@@ -11,6 +11,7 @@
 <table class="luokittelu">
   <tr><th>Vaihe</th><td><a href="{{ vaihesivu }}">{{ sn.vaihe(h.vaihe) }}</a></td></tr>
   <tr><th>Alavaihe</th><td>{{ suodatin("alavaihe", h.alavaihe, sn.alavaihe(h.alavaihe)) }}</td></tr>
+  {% if h.myos_alavaiheet %}<tr><th>Myös</th><td>{% for a in h.myos_alavaiheet %}{% set va = sn.alavaiheet[a][0] %}<a href="{{ juuri }}vaiheet/{{ va }}/?alavaihe={{ a }}">{{ sn.alavaihe(a) }}</a>{% if va != h.vaihe %} <span class="pieni">({{ sn.vaihe(va) }})</span>{% endif %}{{ ", " if not loop.last }}{% endfor %}</td></tr>{% endif %}
   {% if h.alue %}<tr><th>Alue</th><td>{{ suodatin("alue", h.alue, sn.alue(h.alue)) }}</td></tr>{% endif %}
   {% if pk.tilanne %}<tr><th>Pelin keskus</th><td>{{ suodatin("tilanne", pk.tilanne, pk.tilanne) }}:
     {% for r in pk.roolit %}{{ suodatin("rooli", r, r) }}{{ ", " if not loop.last }}{% endfor %}

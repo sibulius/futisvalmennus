@@ -66,6 +66,7 @@ def rakenna_skeema(s: dict) -> dict:
     vakio = s["vaiheet"].get("vakiotilanne", {})
     pr["vaihe"]["enum"] = list(s["vaiheet"])
     pr["alavaihe"]["enum"] = [a for v in s["vaiheet"].values() for a in v["alavaiheet"]]
+    pr["myos_alavaiheet"]["items"]["enum"] = pr["alavaihe"]["enum"]
     pr["alue"]["enum"] = list(s["alueet"])
     pr["kaistat"]["items"]["enum"] = list(s.get("kaistat", {}))
     pk = pr["pelin_keskus"]["properties"]
@@ -93,6 +94,8 @@ def tarkista_harjoite(polku: Path, fm: dict, s: dict, validoija) -> None:
         return
     if fm.get("alavaihe") not in vaihe["alavaiheet"]:
         virhe(p, f"alavaihe '{fm.get('alavaihe')}' ei kuulu vaiheeseen '{fm.get('vaihe')}'")
+    if fm.get("alavaihe") in (fm.get("myos_alavaiheet") or []):
+        virhe(p, "myos_alavaiheet ei saa sisältää pääalavaihetta")
 
     on_vakio = fm.get("vaihe") == "vakiotilanne"
     if on_vakio and "puoli" not in fm:
