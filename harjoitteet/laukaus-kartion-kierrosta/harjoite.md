@@ -4,7 +4,7 @@ nimi: Laukaus kartion kierrosta
 vaihe: tekniikka
 alavaihe: laukominen
 paineistaminen: ei
-painopiste: Pallon työntö kartioportin läpi, nopea kierto kartion ympäri ja laukaus liikkeestä maalin kulmaan
+painopiste: Pallon työntö kartioportin läpi, nopea kierto kartion ympäri, laukaus liikkeestä maalin kulmaan ja eteen torjutun pallon viimeistely
 ika: [U12, U13]
 kesto_min: 15
 pelaajat: 8
@@ -18,7 +18,8 @@ valineet: [pallot, kartiot, iso maali]
 ## Tavoite
 Pelaaja oppii laukomaan liikkeestä: hän työntää pallon eteen, kiertää kartion
 nopeasti, avaa vartalon kohti maalia ja laukoo tarkasti maalin kulmaan
-maalivahdin ohi.
+maalivahdin ohi. Laukauksen jälkeen hän seuraa palloa ja viimeistelee
+eteen torjutun pallon.
 
 ## Järjestelyt
 - Alue noin 22 × 18 m ison maalin edessä (rangaistusalue ja sen edusta).
@@ -42,10 +43,12 @@ maalivahdin ohi.
    itse maalin puoleisen kartion.
 3. Hän ottaa pallon kiinni ja laukoo maaliin joko suoraan tai yhden
    ohjaavan kosketuksen jälkeen.
-4. Laukaisija hakee pallonsa ja siirtyy seuraavan portin jonon perälle.
+4. Laukaisija seuraa laukaustaan maalille. Jos maalivahti torjuu pallon eteen,
+   hän viimeistelee irtopallon maaliin.
+5. Laukaisija hakee pallonsa ja siirtyy seuraavan portin jonon perälle.
    Näin viimeistelyn suunta vaihtuu jokaisella kierroksella: laukauskulma ja
    -etäisyys muuttuvat ja laukauksia tulee kummallakin jalalla.
-5. Maalivahdit vaihtavat esimerkiksi 5 laukauksen välein.
+6. Maalivahdit vaihtavat esimerkiksi 5 laukauksen välein.
 
 ## Valmennuspisteet
 Valitaan 1–2 kerrallaan.
@@ -54,7 +57,7 @@ Valitaan 1–2 kerrallaan.
 - Vilkaise maalivahdin sijainti ennen laukausta.
 - Tukijalka pallon viereen ja vartalo pallon päälle, jotta laukaus pysyy matalana.
 - Osu palloon nilkka lukittuna rinnalla tai sisäsyrjällä ja tähtää maalin kulmaan.
-- Seuraa laukausta maalille mahdollisen torjunnan varalta.
+- Seuraa laukausta heti maalille ja viimeistele eteen torjuttu pallo ensimmäisellä kosketuksella.
 
 ## Onnistumisen mittari
 Pelaajat kiertävät kartion pysähtymättä ja laukovat yhä useammin matalia ja

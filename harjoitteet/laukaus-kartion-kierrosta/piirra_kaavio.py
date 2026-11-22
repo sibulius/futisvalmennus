@@ -29,6 +29,7 @@ x1, y1, cx, cy, x2, y2 = k.X(8.2), k.Y(7.0), k.X(8.2), k.Y(11.4), k.X(11.4), k.Y
 k.el.append(f'<path d="M{x1},{y1} Q{cx},{cy} {x2},{y2}" fill="none" stroke="#111111" '
             f'stroke-width="2.5" marker-end="url(#ah-run)"/>')     # juoksu kartion ympäri
 k.arrow(12.4, 9.9, 21.4, 9.4, "shot")                 # laukaus
+k.arrow(12.6, 10.9, 18.2, 10.9, "run")                # seuraa laukausta torjunnan varalta
 k.dim("n. 22 m", "n. 18 m")
 k.save(str(TAMA / "kaavio.svg"),
        [("A", "hyökkääjät"), ("V", "maalivahdit"), ("drib", "kuljetus"),
