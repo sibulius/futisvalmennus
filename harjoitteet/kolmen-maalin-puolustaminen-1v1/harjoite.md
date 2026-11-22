@@ -3,7 +3,7 @@ tunniste: kolmen-maalin-puolustaminen-1v1
 nimi: Kolmen maalin puolustaminen 1v1
 vaihe: puolustaminen
 alavaihe: syvyyden_puolustaminen
-myos_alavaiheet: [vastahyokkays]
+myos_alavaiheet: [prassaaminen, vastahyokkays]
 alue: oma_kolmannes
 paineistaminen: aktiivinen
 pelin_keskus:
