@@ -132,7 +132,7 @@ class Kaavio:
     def save(self, path, legend, png=False):
         """legend: lista (tunnus, teksti); tunnus = A/B/C/V/K, pass/shot/run/drib tai point_line. Kartiot lisätään automaattisesti."""
         legend = [l for l in legend if not l[0].startswith("cone")]
-        for k in ("corner", "line", "gate"):
+        for k in CONE:
             if k in self.cones: legend.append(("cone_" + k, CONE[k][2]))
         W = max(self.X(self.w) + 4.4 * self.S + 30, 520)
         def step(t, txt): return 30 + len(txt) * 6.4 + (8 if t in ARROW else 0)
