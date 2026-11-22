@@ -3,6 +3,7 @@ tunniste: suunnanvalinta-vastaanotossa-2v2
 nimi: Suunnanvalinta vastaanotossa 2v2
 vaihe: hyokkaaminen
 alavaihe: murtautuminen
+myos_alavaiheet: [vastaanotto, havainnointi]
 alue: hyokkayskolmannes
 paineistaminen: aktiivinen
 kaistat: []

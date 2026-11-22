@@ -3,6 +3,7 @@ tunniste: selka-hyokkayssuuntaan-1v1
 nimi: Selkä hyökkäyssuuntaan 1v1
 vaihe: hyokkaaminen
 alavaihe: rakentaminen
+myos_alavaiheet: [kaantyminen, havainnointi]
 alue: keskikolmannes
 paineistaminen: aktiivinen
 kaistat: []

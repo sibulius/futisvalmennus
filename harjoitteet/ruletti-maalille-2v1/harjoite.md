@@ -3,6 +3,7 @@ tunniste: ruletti-maalille-2v1
 nimi: Ruletti maalille 2v1
 vaihe: hyokkaaminen
 alavaihe: murtautuminen
+myos_alavaiheet: [viimeistely]
 alue: hyokkayskolmannes
 paineistaminen: aktiivinen
 pelin_keskus:

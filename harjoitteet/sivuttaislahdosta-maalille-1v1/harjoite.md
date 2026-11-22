@@ -3,6 +3,7 @@ tunniste: sivuttaislahdosta-maalille-1v1
 nimi: Sivuttaislähdöstä maalille 1v1
 vaihe: hyokkaaminen
 alavaihe: murtautuminen
+myos_alavaiheet: [kaantyminen, viimeistely]
 alue: hyokkayskolmannes
 paineistaminen: aktiivinen
 kaistat: []

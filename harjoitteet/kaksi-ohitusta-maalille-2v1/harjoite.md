@@ -3,6 +3,7 @@ tunniste: kaksi-ohitusta-maalille-2v1
 nimi: Kaksi ohitusta maalille 2v1
 vaihe: hyokkaaminen
 alavaihe: murtautuminen
+myos_alavaiheet: [viimeistely]
 alue: hyokkayskolmannes
 paineistaminen: aktiivinen
 pelin_keskus:
