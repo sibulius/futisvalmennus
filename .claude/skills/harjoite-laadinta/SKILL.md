@@ -22,6 +22,8 @@ Jos käyttäjä antaa vapaan kuvauksen, päättele luokittelu ja näytä se hyv�
 - Paineistaminen: ei, passiivinen, puoliaktiivinen tai aktiivinen (sanasto.yml).
 - Kaistat vain, jos harjoite kohdistuu niihin; vasen/oikea hyökkäyssuuntaan.
 - Vakiotilanteissa `puoli` ja `tehtavat`.
+- Tekninen drilli ilman vastustajaa ja pelin vaihetta: `vaihe: tekniikka`,
+  alavaiheeksi harjoiteltava taito, `paineistaminen: ei`; `pelin_keskus` ja `alue` jätetään pois.
 
 ## 4. Luo tiedostot
 - Tunniste: pienet kirjaimet, ei ääkkösiä, väliviivat. Tarkista, ettei kansiota ole jo.
