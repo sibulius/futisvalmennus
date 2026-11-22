@@ -10,6 +10,7 @@ from kaavio import Kaavio  # noqa: E402
 k = Kaavio(22, 18, "Laukaus kartion kierrosta")
 k.goal(22, 8.5, 5, big=True)
 k.p(21.1, 11, "V", "MV")
+k.p(23.2, 15.6, "V")                                   # vaihtomaalivahti kentän ulkopuolella
 # kolme porttia, kunkin takana kaksi pelaajaa palloineen
 # portti 1: suoritus piirretty nuolin; pallo työnnetään kartioiden välistä,
 # pelaaja kiertää maalin puoleisen kartion
@@ -30,6 +31,6 @@ k.el.append(f'<path d="M{x1},{y1} Q{cx},{cy} {x2},{y2}" fill="none" stroke="#111
 k.arrow(12.4, 9.9, 21.4, 9.4, "shot")                 # laukaus
 k.dim("n. 22 m", "n. 18 m")
 k.save(str(TAMA / "kaavio.svg"),
-       [("A", "hyökkääjät"), ("V", "maalivahti"), ("drib", "kuljetus"),
+       [("A", "hyökkääjät"), ("V", "maalivahdit"), ("drib", "kuljetus"),
         ("pass", "pallon työntö"), ("run", "juoksu"), ("shot", "laukaus")],
        png="--png" in sys.argv)

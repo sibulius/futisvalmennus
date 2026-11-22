@@ -7,7 +7,7 @@ paineistaminen: ei
 painopiste: Pallon työntö kartioportin läpi, nopea kierto kartion ympäri ja laukaus liikkeestä maalin kulmaan
 ika: [U12, U13]
 kesto_min: 15
-pelaajat: 7
+pelaajat: 8
 valineet: [pallot, kartiot, iso maali]
 ---
 
@@ -28,8 +28,9 @@ maalivahdin ohi.
   puolelle kauemmas.
 - Pelaajat jaetaan tasaisesti porttien taakse, esimerkiksi 2 pelaajaa portille.
   Jonot ovat noin 5–6 metrin päässä portista, ja jokaisella on pallo.
-  Maalivahti maalissa.
-- 6 pelaajaa ja maalivahti. Isommalla ryhmällä porttien taakse tulee
+- Maalivahti maalissa ja toinen maalivahti odottaa vuoroaan maalin vieressä
+  kentän ulkopuolella.
+- 6 pelaajaa ja 2 maalivahtia. Isommalla ryhmällä porttien taakse tulee
   3 pelaajaa.
 - Välineet: iso maali, 6 kartiota, palloja jokaiselle.
 
@@ -44,6 +45,7 @@ maalivahdin ohi.
 4. Laukaisija hakee pallonsa ja siirtyy seuraavan portin jonon perälle.
    Näin viimeistelyn suunta vaihtuu jokaisella kierroksella: laukauskulma ja
    -etäisyys muuttuvat ja laukauksia tulee kummallakin jalalla.
+5. Maalivahdit vaihtavat esimerkiksi 5 laukauksen välein.
 
 ## Valmennuspisteet
 Valitaan 1–2 kerrallaan.
