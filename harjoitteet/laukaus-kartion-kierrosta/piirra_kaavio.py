@@ -10,14 +10,18 @@ from kaavio import Kaavio  # noqa: E402
 k = Kaavio(22, 18, "Laukaus kartion kierrosta")
 k.goal(22, 8.5, 5, big=True)
 k.p(21.1, 11, "V", "MV")
-# hyökkääjät jonossa vinosti, jokaisella pallo
+# kolme porttia, kunkin takana kaksi pelaajaa palloineen
+# portti 1: suoritus piirretty nuolin; pallo työnnetään kartioiden välistä,
+# pelaaja kiertää maalin puoleisen kartion
 k.p(5.6, 4.0, "A", "H"); k.ball(6.4, 4.9)
-k.queue(4.0, 2.6, "A", 2, dx=-1.6, dy=-1.3)
-# kartioportti: pallo työnnetään kartioiden välistä, pelaaja kiertää alemman kartion
+k.p(4.0, 2.7, "A")
 k.cone(10.34, 7.47); k.cone(9.68, 8.23)
-# muut porttipaikat: viimeistelyn suuntaa vaihdetaan harjoitteen aikana
-k.cone(15.27, 3.06); k.cone(14.54, 3.74)
-k.cone(9.37, 13.92); k.cone(9.63, 14.88)
+# portti 2: lähempänä maalia, jyrkempi kulma
+k.p(10.4, 2.0, "A"); k.p(8.6, 1.5, "A"); k.ball(11.3, 2.6)
+k.cone(15.05, 2.92); k.cone(14.75, 3.88)
+# portti 3: maalin toisella puolella, kauempana
+k.p(4.8, 15.6, "A"); k.p(3.0, 16.0, "A"); k.ball(5.8, 15.0)
+k.cone(9.38, 13.92); k.cone(9.62, 14.88)
 k.arrow(6.8, 5.2, 8.6, 6.4, "drib")                    # kuljetus kohti porttia
 k.arrow(8.8, 6.8, 11.8, 9.4, "pass")                   # pallo kartioiden välistä
 x1, y1, cx, cy, x2, y2 = k.X(8.2), k.Y(7.0), k.X(8.2), k.Y(11.4), k.X(11.4), k.Y(10.2)

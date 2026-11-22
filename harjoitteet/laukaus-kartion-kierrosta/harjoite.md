@@ -26,24 +26,24 @@ maalivahdin ohi.
   viimeistelyn suunta vaihtuu: yksi viistosti maalin sivulle noin 12–14 metrin
   päähän, yksi lähemmäs maalia jyrkempään kulmaan ja yksi maalin toiselle
   puolelle kauemmas.
-- Hyökkääjät jonottavat palloineen käytössä olevan portin takana viistosti,
-  noin 5–6 metrin päässä portista. Maalivahti maalissa.
-- 6–8 pelaajaa ja maalivahti. Isommalle ryhmälle tehdään toinen suorituspaikka
-  maalin toiselle puolelle.
+- Pelaajat jaetaan tasaisesti porttien taakse, esimerkiksi 2 pelaajaa portille.
+  Jonot ovat noin 5–6 metrin päässä portista, ja jokaisella on pallo.
+  Maalivahti maalissa.
+- 6 pelaajaa ja maalivahti. Isommalla ryhmällä porttien taakse tulee
+  3 pelaajaa.
 - Välineet: iso maali, 6 kartiota, palloja jokaiselle.
 
 ## Kulku
 1. Jonon ensimmäinen lähtee omasta aloitteestaan ja kuljettaa pallon kohti
-   kartioporttia.
+   oman jononsa kartioporttia. Portit suorittavat vuorotellen, jotta
+   maalivahti ehtii valmiiksi jokaiseen laukaukseen.
 2. Ennen porttia hän työntää pallon kartioiden välistä kohti maalia ja kiertää
    itse maalin puoleisen kartion.
 3. Hän ottaa pallon kiinni ja laukoo maaliin joko suoraan tai yhden
    ohjaavan kosketuksen jälkeen.
-4. Laukaisija hakee pallonsa ja palaa jonon perälle. Seuraava lähtee, kun
-   edellinen on laukaissut.
-5. Viimeistelyn suuntaa vaihdetaan intervalleittain: jono siirtyy seuraavan
-   portin taakse, jolloin laukauskulma ja -etäisyys muuttuvat ja laukauksia
-   tulee kummallakin jalalla.
+4. Laukaisija hakee pallonsa ja siirtyy seuraavan portin jonon perälle.
+   Näin viimeistelyn suunta vaihtuu jokaisella kierroksella: laukauskulma ja
+   -etäisyys muuttuvat ja laukauksia tulee kummallakin jalalla.
 
 ## Valmennuspisteet
 Valitaan 1–2 kerrallaan.
