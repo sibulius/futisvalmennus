@@ -46,10 +46,10 @@ tai ohjaamaan hyökkääjän pois maalin edestä.
 3. Puolustaja kiertää kartionsa ja yrittää ehtiä hyökkääjän ja maalin väliin,
    estää laukauksen ja voittaa pallon.
 4. Hyökkääjä yrittää tehdä maalin maalivahdin ohi.
-5. Jos puolustaja voittaa pallon, hän yrittää kuljettaa sen lähtöpäädyn rajan
-   yli (siirtymä). Hyökkääjä yrittää heti voittaa pallon takaisin.
+5. Jos puolustaja voittaa pallon, hän yrittää kuljettaa sen kartioiden välistä
+   (siirtymä). Hyökkääjä yrittää heti voittaa pallon takaisin.
 6. Tilanne päättyy maaliin, maalivahdin torjuntaan, puolustajan kuljetukseen
-   rajan yli tai pallon menemiseen ulos. Pelaajat palaavat omiin jonoihinsa.
+   kartioiden välistä tai pallon menemiseen ulos. Pelaajat palaavat omiin jonoihinsa.
 7. Hyökkääjät ja puolustajat vaihtavat rooleja intervalleittain.
 
 ## Valmennuspisteet
@@ -58,13 +58,15 @@ Valitaan 1–2 kerrallaan.
 - **1H:** kuljeta suoraan kohti maalia ja pidä pallo puolustajasta kauemmalla jalalla.
 - **1H:** laukaise heti, kun laukaisupaikka aukeaa, ennen kuin puolustaja ehtii väliin.
 - **1H:** jos puolustaja ehtii eteen, vartalo pallon ja puolustajan väliin ja suunnanmuutos.
-- **1H:** pallon menetyksen jälkeen heti puolustamaan, ettei puolustaja pääse kuljettamaan rajan yli.
+- **1H:** pallon menetyksen jälkeen heti puolustamaan, ettei puolustaja pääse kuljettamaan kartioiden välistä.
 - **1P:** lähtö heti syötön jälkeen ja tiukka kierto kartion ympäri.
 - **1P:** kiri kohti hyökkääjän ja maalin välistä linjaa, ei suoraan palloon.
 - **1P:** jarrutus ja matala asento ennen kaksinkamppailua.
 - **1P:** ohjaa hyökkääjä kohti pallon puoleista sivurajaa, pois maalin edestä, ja blokkaa laukaus.
+- **1P:** pallon voiton jälkeen nopea kuljetus kartioiden välistä.
 
 ## Onnistumisen mittari
 Hyökkääjät pääsevät laukaisemaan yhä useammin ennen kuin puolustaja ehtii
 väliin. Puolustajat ehtivät hyökkääjän ja maalin väliin, estävät laukauksia ja
-ohjaavat hyökkääjiä sivulle.
+ohjaavat hyökkääjiä sivulle, ja pallon voitot johtavat kuljetukseen kartioiden
+välistä.
