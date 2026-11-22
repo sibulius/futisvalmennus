@@ -13,6 +13,8 @@ pelaajamäärä, ikäluokka ja käytettävissä oleva kenttä. Lue `sanasto.yml`
 Suodata `harjoitteet/*/harjoite.md` frontmatterin perusteella. Ohita `_malli`.
 
 ## 3. Rakenna eteneminen
+- Tekniikkaharjoitteet (`vaihe: tekniikka`) sopivat lämmittelyyn tai rastiksi,
+  kun teeman taito (alavaihe, esim. `vastaanotto`) vastaa harjoituspäivän teemaa.
 - Lämmittely → pienestä keskuksesta (1v1, 2v1) laajempaan (3v2, 3v3) → peli.
 - Hyödynnä `vastinpari`-kenttää: pelissä toinen joukkue harjoittelee alavaihetta,
   toinen sen vastinparia.
