@@ -125,6 +125,7 @@ vaiheet:
       vastaanotto:   { nimi: Vastaanotto }
       syottaminen:   { nimi: Syöttäminen }
       kuljettaminen: { nimi: Kuljettaminen }
+      kaantyminen:   { nimi: Kääntyminen }
       ohittaminen:   { nimi: Ohittaminen }
       laukominen:    { nimi: Laukominen }
       puskeminen:    { nimi: Puskeminen }
