@@ -3,7 +3,7 @@ tunniste: kolme-tehtavaa
 nimi: Kolme tehtävää
 vaihe: tekniikka
 alavaihe: havainnointi
-myos_alavaiheet: [prassaaminen]
+myos_alavaiheet: [prassaaminen, pallon_suojaaminen]
 paineistaminen: aktiivinen
 painopiste: Jatkuva tilannekuva, pallon suojaaminen ja riiston yrittäminen, kun oma tehtävä vaihtuu kesken pelin
 ika: []
