@@ -74,5 +74,4 @@ Valitaan 1–2 kerrallaan.
 ## Onnistumisen mittari
 Hyökkääjät saavat käännöksellä etumatkan ja pääsevät laukaisemaan yhä useammin.
 Puolustajat ehtivät maalin puoleiselle linjalle ja ohjaavat hyökkääjiä sivulle,
-ja pallon voitot johtavat kuljetukseen lähtöpäädyn rajan yli. *(Oma lisäys:
-lähdemateriaalissa ei ole mittaria.)*
+ja pallon voitot johtavat kuljetukseen lähtöpäädyn rajan yli.

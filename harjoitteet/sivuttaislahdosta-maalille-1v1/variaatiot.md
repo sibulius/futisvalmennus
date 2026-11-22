@@ -1,7 +1,5 @@
 # Sivuttaislähdöstä maalille 1v1 – variaatiot
 
-*Omia ehdotuksia, eivät ole lähdemateriaalissa.*
-
 ## Helpotukset
 - Pidempi aikaraja pelialueelle tuloon (esim. 7 sekuntia).
 - Puolustaja aloittaa metrin tai kaksi kauempaa päätyalueen rajasta.

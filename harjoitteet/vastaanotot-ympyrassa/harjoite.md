@@ -35,8 +35,6 @@ Ensimmäisellä kosketuksella hän kääntyy kohti seuraavaa syöttäjää.
 3. Keskipelaaja palauttaa pallon ja hakee seuraavan syöttäjän.
 4. Roolit vaihtuvat muutaman minuutin välein.
 
-Lähteen loppuosa (passiivinen puolustaja keskellä) on siirretty variaatioihin.
-
 ## Valmennuspisteet
 Valitaan 1–2 kerrallaan.
 - **Keskipelaaja:** avoin vartalo pallon vastaanotossa.
@@ -44,9 +42,8 @@ Valitaan 1–2 kerrallaan.
 - **Keskipelaaja:** ensimmäinen kosketus eri pinnoilla.
 - **Keskipelaaja:** molempien jalkojen käyttö.
 - **Keskipelaaja:** kommunikointi: pyydä syöttöä tai heittoa kuuluvalla äänellä.
-- **Syöttäjä:** *(oma lisäys:)* syötä vasta, kun keskipelaaja on liikkeellä ja vartalo auki.
+- **Syöttäjä:** syötä vasta, kun keskipelaaja on liikkeellä ja vartalo auki.
 
 ## Onnistumisen mittari
 Keskipelaajat lähtevät syöttäjää kohti vinosti ja kääntyvät ensimmäisellä
 kosketuksella kohti seuraavaa syöttäjää yhä useammin, myös heikommalla jalalla.
-*(Oma lisäys: lähdemateriaalissa ei ole mittaria.)*

@@ -47,13 +47,13 @@ painostusta jo syötön aikana, ja pallon voiton jälkeen siirtymää hyökkäyk
 3. Puolustaja painostaa takaa ja yrittää estää kääntymisen.
 4. Jos puolustaja voittaa pallon, hän hyökkää isoon maaliin.
 5. Valmentaja vaihtaa syöttöpuolta, jotta vastaanottoja tulee molemmilla jaloilla.
-6. *(Oma lisäys:)* Tilanne päättyy maaliin, pallon menemiseen ulos tai
+6. Tilanne päättyy maaliin, pallon menemiseen ulos tai
    puolustajan maaliyritykseen. Pelaajat palaavat jonoihinsa ja vaihtavat
    rooleja intervalleittain.
 
 ## Valmennuspisteet
 Valitaan 1–2 kerrallaan.
-- **1H:** *(oma lisäys:)* aloita liike itse ja pyydä pallo selvästi valmentajalta.
+- **1H:** aloita liike itse ja pyydä pallo selvästi valmentajalta.
 - **1H:** katse olan yli ennen vastaanottoa: missä puolustaja on, missä on tilaa.
 - **1H:** ensimmäinen kosketus pois puolustajasta, sille puolelle jossa on tilaa.
 - **1H:** vartalo pallon ja puolustajan väliin, jos kääntyminen ei heti onnistu.
@@ -64,4 +64,3 @@ Valitaan 1–2 kerrallaan.
 Hyökkääjät tarkistavat olan yli ennen jokaista vastaanottoa ja kääntyvät
 ensimmäisellä kosketuksella yhä useammin. Puolustajat ehtivät painostamaan
 syötön aikana ilman, että hyökkääjä pääsee kääntymään heidän ohitseen.
-*(Oma lisäys: lähdemateriaalissa ei ole mittaria.)*
