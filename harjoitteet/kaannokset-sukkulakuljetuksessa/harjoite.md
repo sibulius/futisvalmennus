@@ -2,7 +2,8 @@
 tunniste: kaannokset-sukkulakuljetuksessa
 nimi: Käännökset sukkulakuljetuksessa
 vaihe: tekniikka
-alavaihe: kuljettaminen
+alavaihe: kaantyminen
+myos_alavaiheet: [kuljettaminen]
 paineistaminen: ei
 painopiste: Nopea 180 asteen käännös pallon kanssa, pallo lähellä jarrutuksessa ja räjähtävä kiihdytys käännöksen jälkeen
 ika: [U10, U11, U12, U13]
