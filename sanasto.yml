@@ -118,6 +118,17 @@ vaiheet:
         tavoite: Perääntyminen, keskustan sulkeminen ja vastahyökkäyksen hidastaminen
         vastinpari: vastahyokkays
 
+  tekniikka:
+    nimi: Tekniikka
+    sallitut_roolit: []            # tekninen drilli ilman pelin keskusta
+    alavaiheet:
+      vastaanotto:   { nimi: Vastaanotto }
+      syottaminen:   { nimi: Syöttäminen }
+      kuljettaminen: { nimi: Kuljettaminen }
+      ohittaminen:   { nimi: Ohittaminen }
+      laukominen:    { nimi: Laukominen }
+      puskeminen:    { nimi: Puskeminen }
+
   vakiotilanne:
     nimi: Vakiotilanne
     sallitut_roolit: []            # pelin keskuksen roolit vapaaehtoisia
@@ -136,6 +147,7 @@ vaiheet:
 saannot:
   - Harjoitteella on yksi päävaihe ja yksi alavaihe, vaikka se sivuaisi muitakin.
   - "Rakentaminen = keskikolmanneksen vaihe, ei omalta alueelta avaamista (se on avaaminen)."
+  - Tekniikka = tekninen drilli, jossa ei ole pelin vaihetta eikä pelin keskusta; alavaihe on harjoiteltava taito. Pelin keskusta ja aluetta ei merkitä, ja paineistaminen on yleensä 'ei'.
   - Vakiotilanteen kuviota opettava harjoite on vakiotilanne; vakiotilanteen jälkeistä peliä opettava luokitellaan alavaiheen mukaan.
   - Roolien on kuuluttava vaiheen sallittuihin rooleihin; siirtymissä sekä H- että P-roolit ovat sallittuja.
   - Paineistaminen merkitään jokaiseen harjoitteeseen; kun paineistaminen on 'ei', vastarooleja ei ole.
