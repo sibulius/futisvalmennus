@@ -48,6 +48,9 @@ sivusto/                    # sivuston pohjat (Jinja2), tyylit ja suodatus-JS
   AINA sinisiä (`"B"`), myös silloin kun joukkueet vaihtavat rooleja kesken
   harjoitteen – kaavio kuvaa aloitustilanteen. Neutraalit/syöttäjät keltaisia
   (`"C"`), maalivahdit vihreitä (`"V"`), valmentaja harmaa (`"K"`).
+- Julkaistaviin harjoitetiedostoihin ei kirjoiteta viittauksia lähdemateriaaliin
+  eikä merkintöjä kuten "oma lisäys". Arvaukset ja omat lisäykset kerrotaan
+  käyttäjälle luonnosvaiheessa, ei tiedostoissa.
 - Aja `python tools/tarkista.py` aina harjoitteen tai sanaston muuttamisen jälkeen
   ja korjaa virheet ennen committia.
 - Verkkosivu (GitHub Pages) generoidaan mainista automaattisesti

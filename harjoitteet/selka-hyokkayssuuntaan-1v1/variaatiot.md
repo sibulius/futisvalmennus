@@ -1,7 +1,5 @@
 # Selkä hyökkäyssuuntaan 1v1 – variaatiot
 
-*Omia ehdotuksia, eivät ole lähdemateriaalissa.*
-
 ## Helpotukset
 - Puolustaja on passiivinen ensimmäisten toistojen ajan eikä riistä.
 - Puolustaja aloittaa metrin kauempaa hyökkääjästä.

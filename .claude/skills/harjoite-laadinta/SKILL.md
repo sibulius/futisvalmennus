@@ -37,3 +37,8 @@ Jos käyttäjä antaa vapaan kuvauksen, päättele luokittelu ja näytä se hyv�
 
 ## 5. Älä kirjoita
 Pelaajien nimiä tai muita joukkuekohtaisia tietoja – repo on julkinen.
+
+Älä myöskään kirjoita harjoitteen tiedostoihin viittauksia lähdemateriaaliin tai
+merkintöjä kuten "oma lisäys" tai "ei lähteessä". Kerro arvaukset ja omat lisäykset
+käyttäjälle luonnosta esitellessäsi, mutta julkaistava teksti kirjoitetaan valmiina
+harjoitteena.
