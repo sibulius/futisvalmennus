@@ -22,13 +22,15 @@ maalivahdin ohi.
 
 ## Järjestelyt
 - Alue noin 22 × 18 m ison maalin edessä (rangaistusalue ja sen edusta).
-- Kartioportti, jonka kartiot ovat noin metrin päässä toisistaan, noin
-  12–14 metrin päähän maalista viistosti maalin sivulle.
-- Hyökkääjät jonottavat palloineen portin takana viistosti, noin 5–6 metrin
-  päässä portista. Maalivahti maalissa.
+- Kolme noin metrin levyistä kartioporttia eri kohtiin maalin eteen, jotta
+  viimeistelyn suunta vaihtuu: yksi viistosti maalin sivulle noin 12–14 metrin
+  päähän, yksi lähemmäs maalia jyrkempään kulmaan ja yksi maalin toiselle
+  puolelle kauemmas.
+- Hyökkääjät jonottavat palloineen käytössä olevan portin takana viistosti,
+  noin 5–6 metrin päässä portista. Maalivahti maalissa.
 - 6–8 pelaajaa ja maalivahti. Isommalle ryhmälle tehdään toinen suorituspaikka
   maalin toiselle puolelle.
-- Välineet: iso maali, 2 kartiota, palloja jokaiselle.
+- Välineet: iso maali, 6 kartiota, palloja jokaiselle.
 
 ## Kulku
 1. Jonon ensimmäinen lähtee omasta aloitteestaan ja kuljettaa pallon kohti
@@ -39,8 +41,9 @@ maalivahdin ohi.
    ohjaavan kosketuksen jälkeen.
 4. Laukaisija hakee pallonsa ja palaa jonon perälle. Seuraava lähtee, kun
    edellinen on laukaissut.
-5. Suorituspuolta vaihdetaan intervalleittain, jotta laukaukset tulevat
-   kummallakin jalalla.
+5. Viimeistelyn suuntaa vaihdetaan intervalleittain: jono siirtyy seuraavan
+   portin taakse, jolloin laukauskulma ja -etäisyys muuttuvat ja laukauksia
+   tulee kummallakin jalalla.
 
 ## Valmennuspisteet
 Valitaan 1–2 kerrallaan.
