@@ -3,6 +3,7 @@ tunniste: lapimurto-pikkumaaleihin-1v1
 nimi: Läpimurto pikkumaaleihin 1v1
 vaihe: hyokkaaminen
 alavaihe: murtautuminen
+myos_alavaiheet: [vastahyokkays, vastaprassi]
 alue: hyokkayskolmannes
 paineistaminen: aktiivinen
 pelin_keskus:
