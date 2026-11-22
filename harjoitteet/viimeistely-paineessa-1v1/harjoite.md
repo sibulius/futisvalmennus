@@ -28,11 +28,11 @@ kirimään pallollisen tasalle, tulemaan oikeassa kulmassa ja estämään laukau
 tai ohjaamaan hyökkääjän pois maalin edestä.
 
 ## Järjestelyt
-- Alue 24 × 20 m (pituus maaliin 24 m, leveys 20 m).
+- Alue 20 × 15 m (pituus maaliin 20 m, leveys 15 m).
 - Iso maali ja maalivahti alueen toisessa päässä.
-- Lähtöpäädyssä kaksi jonoa 12 metrin päässä toisistaan: puolustajat vasemmalla
-  ja hyökkääjät oikealla. Kummankin jonon eteen, noin 4 metrin päähän, asetetaan
-  kartio, joka on kierrettävä ulkokautta.
+- Lähtöpäädyssä kaksi jonoa: puolustajat vasemmalla ja hyökkääjät oikealla.
+  Kummankin jonon eteen asetetaan kartio, joka on kierrettävä ulkokautta.
+  Kartioiden väli on 5 m.
 - Puolustajilla on pallot.
 - 6–8 kenttäpelaajaa ja maalivahti. Isommalle ryhmälle tehdään toinen
   suorituspaikka viereen.
