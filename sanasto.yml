@@ -42,6 +42,40 @@ paineistaminen:
 # --- Pelin vaiheet ja alavaiheet ------------------------------------------
 vaiheet:
 
+  alkulammittely:
+    nimi: Alkulämmittely
+    sallitut_roolit: []
+    ilman_pelin_keskusta: true     # pelin keskusta ja aluetta ei merkitä
+    alavaiheet:
+      dynaaminen_liikkuvuus:  { nimi: Dynaaminen liikkuvuus }
+      lihasaktivointi:        { nimi: Lihasaktivointi }
+      pallollinen_lammittely: { nimi: Pallollinen lämmittely }
+      lammittelyleikit:       { nimi: Lämmittelyleikit }
+
+  fysiikka:
+    nimi: Fysiikka
+    sallitut_roolit: []
+    ilman_pelin_keskusta: true
+    alavaiheet:
+      nopeus:     { nimi: Nopeus }
+      ketteryys:  { nimi: Ketteryys }
+      voima:      { nimi: Voima }
+      kestavyys:  { nimi: Kestävyys }
+
+  tekniikka:
+    nimi: Tekniikka
+    sallitut_roolit: []            # tekninen drilli ilman pelin keskusta
+    ilman_pelin_keskusta: true
+    alavaiheet:
+      vastaanotto:   { nimi: Vastaanotto }
+      syottaminen:   { nimi: Syöttäminen }
+      kuljettaminen: { nimi: Kuljettaminen }
+      kaantyminen:   { nimi: Kääntyminen }
+      ohittaminen:   { nimi: Ohittaminen }
+      laukominen:    { nimi: Laukominen }
+      puskeminen:    { nimi: Puskeminen }
+      havainnointi:  { nimi: Havainnointi }
+
   hyokkaaminen:
     nimi: Hyökkääminen
     sallitut_roolit: [1H, 2H, 3H]
@@ -66,6 +100,19 @@ vaiheet:
         tavoite: Maalintekotilanteen luominen ja hyödyntäminen – keskitykset, laukaukset, toinen pallo
         alue: rangaistusalue
         vastinpari: maalin_puolustaminen
+
+  siirtyma_puolustukseen:
+    nimi: Siirtymä puolustukseen (pallonmenetys)
+    sallitut_roolit: [1H, 2H, 3H, 1P, 2P, 3P]
+    alavaiheet:
+      vastaprassi:
+        nimi: Vastaprässi
+        tavoite: Välitön takaisinriisto lähimmillä pelaajilla muutaman sekunnin ajan
+        vastinpari: pallon_turvaaminen
+      uudelleenjarjestaytyminen:
+        nimi: Uudelleenjärjestäytyminen
+        tavoite: Perääntyminen, keskustan sulkeminen ja vastahyökkäyksen hidastaminen
+        vastinpari: vastahyokkays
 
   puolustaminen:
     nimi: Puolustaminen
@@ -105,32 +152,6 @@ vaiheet:
         tavoite: Pallon vieminen pois paineesta ja hallinnan säilyttäminen, kun vastahyökkäys ei ole mahdollinen
         vastinpari: vastaprassi
 
-  siirtyma_puolustukseen:
-    nimi: Siirtymä puolustukseen (pallonmenetys)
-    sallitut_roolit: [1H, 2H, 3H, 1P, 2P, 3P]
-    alavaiheet:
-      vastaprassi:
-        nimi: Vastaprässi
-        tavoite: Välitön takaisinriisto lähimmillä pelaajilla muutaman sekunnin ajan
-        vastinpari: pallon_turvaaminen
-      uudelleenjarjestaytyminen:
-        nimi: Uudelleenjärjestäytyminen
-        tavoite: Perääntyminen, keskustan sulkeminen ja vastahyökkäyksen hidastaminen
-        vastinpari: vastahyokkays
-
-  tekniikka:
-    nimi: Tekniikka
-    sallitut_roolit: []            # tekninen drilli ilman pelin keskusta
-    alavaiheet:
-      vastaanotto:   { nimi: Vastaanotto }
-      syottaminen:   { nimi: Syöttäminen }
-      kuljettaminen: { nimi: Kuljettaminen }
-      kaantyminen:   { nimi: Kääntyminen }
-      ohittaminen:   { nimi: Ohittaminen }
-      laukominen:    { nimi: Laukominen }
-      puskeminen:    { nimi: Puskeminen }
-      havainnointi:  { nimi: Havainnointi }
-
   vakiotilanne:
     nimi: Vakiotilanne
     sallitut_roolit: []            # pelin keskuksen roolit vapaaehtoisia
@@ -145,12 +166,24 @@ vaiheet:
       rangaistuspotku: { nimi: Rangaistuspotku }
       # sisaanpotku:   { nimi: Sisäänpotku }   # ota käyttöön, jos ikäluokassa käytössä
 
+  loppufysiikka:
+    nimi: Loppufysiikka
+    sallitut_roolit: []
+    ilman_pelin_keskusta: true
+    alavaiheet:
+      keskivartalo:     { nimi: Keskivartalo }
+      lihaskunto:       { nimi: Lihaskunto }
+      loppujuoksut:     { nimi: Loppujuoksut }
+      loppuverryttely:  { nimi: Loppuverryttely }
+
 # --- Luokittelusäännöt (skillit ja CLAUDE.md) -----------------------------
 saannot:
   - Harjoitteella on yksi päävaihe ja yksi alavaihe, vaikka se sivuaisi muitakin.
   - Jos harjoite opettaa selvästi myös toista alavaihetta, se merkitään kenttään myos_alavaiheet (enintään 2). Pelkkää sivuamista ei merkitä; pääluokitus ratkaisee alueen ja roolit.
   - "Rakentaminen = keskikolmanneksen vaihe, ei omalta alueelta avaamista (se on avaaminen)."
   - Tekniikka = tekninen drilli, jossa ei ole pelin vaihetta eikä pelin keskusta; alavaihe on harjoiteltava taito. Pelin keskusta ja aluetta ei merkitä, ja paineistaminen on yleensä 'ei'.
+  - Alkulämmittely, fysiikka ja loppufysiikka luokitellaan kuten tekniikka – alavaihe on harjoitteen pääasiallinen sisältö, eikä pelin keskusta tai aluetta merkitä. Lämmittelyleikeissä paineistaminen voi olla muu kuin 'ei'. Loppufysiikka on harjoituksen lopuksi tehtävä fyysinen osio; muut fyysiset harjoitteet ovat fysiikkaa.
+  - Pallollinen lämmittely, jonka pääsisältö on yksi tekninen taito, luokitellaan tekniikaksi; alkulämmittely-vaihe on harjoitteille, jotka on tehty nimenomaan lämmittelyksi.
   - Vakiotilanteen kuviota opettava harjoite on vakiotilanne; vakiotilanteen jälkeistä peliä opettava luokitellaan alavaiheen mukaan.
   - Roolien on kuuluttava vaiheen sallittuihin rooleihin; siirtymissä sekä H- että P-roolit ovat sallittuja.
   - Paineistaminen merkitään jokaiseen harjoitteeseen; kun paineistaminen on 'ei', vastarooleja ei ole.

@@ -49,7 +49,7 @@ code { font-size: .9em; }
 .etusivuhaku { display: flex; gap: 8px; max-width: 560px; margin: 16px 0 24px; }
 .etusivuhaku input { flex: 1; min-width: 0; }
 .vaihekortit { list-style: none; padding: 0; margin: 0; display: grid; gap: 16px;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+  grid-template-columns: 1fr; max-width: 760px; }
 .vaihekortti { background: var(--pinta); border: 1px solid var(--raja); border-radius: 10px; padding: 16px 18px; }
 .vaihekortti:not(.tyhja-vaihe) { border-top: 4px solid var(--korostus); }
 .vaihekortti h2 { margin: 0; font-size: 1.25rem; }
