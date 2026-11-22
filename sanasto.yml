@@ -75,6 +75,7 @@ vaiheet:
       laukominen:    { nimi: Laukominen }
       puskeminen:    { nimi: Puskeminen }
       havainnointi:  { nimi: Havainnointi }
+      pallon_suojaaminen: { nimi: Pallon suojaaminen }
 
   hyokkaaminen:
     nimi: Hyökkääminen
