@@ -3,7 +3,7 @@ tunniste: vapaan-maalin-valinta-2v2
 nimi: Vapaan maalin valinta 2v2
 vaihe: hyokkaaminen
 alavaihe: murtautuminen
-myos_alavaiheet: [vastaanotto, havainnointi]
+myos_alavaiheet: [rakentaminen]
 alue: hyokkayskolmannes
 paineistaminen: aktiivinen
 kaistat: []
