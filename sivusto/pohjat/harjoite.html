@@ -1,14 +1,15 @@
 {% extends "pohja.html" %}
 {% block kuvaus %}{{ h.painopiste }}{% endblock %}
 {% set pk = h.pelin_keskus or {} %}
-{% macro suodatin(avain, arvo, teksti) %}<a href="{{ juuri }}?{{ avain }}={{ arvo | urlencode }}">{{ teksti }}</a>{% endmacro %}
+{% set vaihesivu = juuri ~ "vaiheet/" ~ h.vaihe ~ "/" %}
+{% macro suodatin(avain, arvo, teksti) %}<a href="{{ vaihesivu }}?{{ avain }}={{ arvo | urlencode }}">{{ teksti }}</a>{% endmacro %}
 {% block sisalto %}
-<p class="murupolku"><a href="{{ juuri }}">Harjoitteet</a> › {{ sn.alavaihe(h.alavaihe) }}</p>
+<p class="murupolku"><a href="{{ juuri }}">Harjoitepankki</a> › <a href="{{ vaihesivu }}">{{ sn.vaihe(h.vaihe) }}</a> › <a href="{{ vaihesivu }}?alavaihe={{ h.alavaihe }}">{{ sn.alavaihe(h.alavaihe) }}</a></p>
 <h1>{{ h.nimi }}</h1>
 <p class="painopiste">{{ h.painopiste }}</p>
 
 <table class="luokittelu">
-  <tr><th>Vaihe</th><td>{{ suodatin("vaihe", h.vaihe, sn.vaihe(h.vaihe)) }}</td></tr>
+  <tr><th>Vaihe</th><td><a href="{{ vaihesivu }}">{{ sn.vaihe(h.vaihe) }}</a></td></tr>
   <tr><th>Alavaihe</th><td>{{ suodatin("alavaihe", h.alavaihe, sn.alavaihe(h.alavaihe)) }}</td></tr>
   {% if h.alue %}<tr><th>Alue</th><td>{{ suodatin("alue", h.alue, sn.alue(h.alue)) }}</td></tr>{% endif %}
   {% if pk.tilanne %}<tr><th>Pelin keskus</th><td>{{ suodatin("tilanne", pk.tilanne, pk.tilanne) }}:

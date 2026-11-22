@@ -118,6 +118,32 @@ def ika_jarjestys(ika: str) -> int:
     return int(ika[1:])
 
 
+def kaytetyt_vaiheet(harjoitteet: list[dict]) -> set[str]:
+    return {h["vaihe"] for h in harjoitteet}
+
+
+def suodatinvalinnat(s: dict, sn: "Sanasto", harjoitteet: list[dict]) -> dict:
+    """Suodattimien valinnat: vain arvot, joita annetuissa harjoitteissa on, sanaston järjestyksessä."""
+    def kaytetyt(kentta):
+        return {x for h in harjoitteet for x in (
+            h.get(kentta) if isinstance(h.get(kentta), list) else [h.get(kentta)]) if x}
+    pk = [h["pelin_keskus"] for h in harjoitteet if h.get("pelin_keskus")]
+    tilanteet = {p["tilanne"] for p in pk}
+    roolit = {r for p in pk for r in p["roolit"] + (p.get("vastaroolit") or [])}
+    return {
+        "vaiheet": [(k, v["nimi"], [(a, at["nimi"]) for a, at in v["alavaiheet"].items()
+                                     if a in kaytetyt("alavaihe")])
+                    for k, v in sn.vaiheet.items() if k in kaytetyt("vaihe")],
+        "alueet": [(k, v) for k, v in s["alueet"].items() if k in kaytetyt("alue")],
+        "tilanteet": [t for t in s["pelin_keskus"]["tilanteet"] if t in tilanteet],
+        "roolit": [r for r in sn.roolit if r in roolit],
+        "paineet": [(k, sn.paine(k)) for k in s["paineistaminen"] if k in kaytetyt("paineistaminen")],
+        "iat": sorted(kaytetyt("ika"), key=ika_jarjestys),
+        "kaistat": [(k, v["nimi"]) for k, v in s["kaistat"].items() if k in kaytetyt("kaistat")],
+        "puolet": [p for p in s["vaiheet"].get("vakiotilanne", {}).get("puolet", []) if p in kaytetyt("puoli")],
+    }
+
+
 # --- Generointi ------------------------------------------------------------
 def rakenna() -> int:
     with open(JUURI / "sanasto.yml", encoding="utf-8") as f:
@@ -139,39 +165,52 @@ def rakenna() -> int:
     )
     yhteiset = {"sn": sn, "repo": REPO, "haara": HAARA}
 
-    # Suodatinvalinnat: vain arvot, joita harjoitteissa oikeasti on, sanaston järjestyksessä.
-    kaytetyt = lambda kentta: {x for h in harjoitteet for x in (
-        h.get(kentta) if isinstance(h.get(kentta), list) else [h.get(kentta)]) if x}
-    tilanteet = {h["pelin_keskus"]["tilanne"] for h in harjoitteet if h.get("pelin_keskus")}
-    roolit = {r for h in harjoitteet if h.get("pelin_keskus")
-              for r in h["pelin_keskus"]["roolit"] + (h["pelin_keskus"].get("vastaroolit") or [])}
-    suodattimet = {
-        "vaiheet": [(k, v["nimi"], [(a, at["nimi"]) for a, at in v["alavaiheet"].items()
-                                     if a in kaytetyt("alavaihe")])
-                    for k, v in sn.vaiheet.items() if k in kaytetyt("vaihe")],
-        "alueet": [(k, v) for k, v in s["alueet"].items() if k in kaytetyt("alue")],
-        "tilanteet": [t for t in s["pelin_keskus"]["tilanteet"] if t in tilanteet],
-        "roolit": [r for r in sn.roolit if r in roolit],
-        "paineet": [(k, sn.paine(k)) for k in s["paineistaminen"] if k in kaytetyt("paineistaminen")],
-        "iat": sorted(kaytetyt("ika"), key=ika_jarjestys),
-        "kaistat": [(k, v["nimi"]) for k, v in s["kaistat"].items() if k in kaytetyt("kaistat")],
-    }
-
-    # Etusivu
+    # Etusivu: vaiheet kortteina (sanaston järjestyksessä, myös tyhjät).
+    vaihekortit = []
+    for vk, v in sn.vaiheet.items():
+        omat = [h for h in harjoitteet if h["vaihe"] == vk]
+        vaihekortit.append({
+            "avain": vk, "nimi": v["nimi"], "maara": len(omat),
+            "alavaiheet": [(a, at["nimi"], sum(h["alavaihe"] == a for h in omat))
+                           for a, at in v["alavaiheet"].items()],
+        })
     (KOHDE / "index.html").write_text(env.get_template("etusivu.html").render(
-        **yhteiset, juuri="", harjoitteet=harjoitteet, suodattimet=suodattimet,
-        otsikko="Harjoitteet"), encoding="utf-8")
+        **yhteiset, juuri="", vaihekortit=vaihekortit, maara=len(harjoitteet),
+        alavaihe_vaihe={a: va for a, (va, _) in sn.alavaiheet.items()},
+        otsikko="Harjoitepankki"), encoding="utf-8")
+
+    # Kaikki harjoitteet: kaikki suodattimet vaiheiden yli.
+    listaus = env.get_template("listaus.html")
+    (KOHDE / "harjoitteet").mkdir()
+    (KOHDE / "harjoitteet" / "index.html").write_text(listaus.render(
+        **yhteiset, juuri="../", harjoitteet=harjoitteet, ryhmat=[(None, None, harjoitteet)],
+        suodattimet=suodatinvalinnat(s, sn, harjoitteet), vaihe=None,
+        otsikko="Kaikki harjoitteet"), encoding="utf-8")
+
+    # Vaihesivut: alavaihenapit ja lista ryhmiteltynä alavaiheittain.
+    for vk in kaytetyt_vaiheet(harjoitteet):
+        omat = [h for h in harjoitteet if h["vaihe"] == vk]
+        ryhmat = [(a, at["nimi"], [h for h in omat if h["alavaihe"] == a])
+                  for a, at in sn.vaiheet[vk]["alavaiheet"].items()]
+        ryhmat = [r for r in ryhmat if r[2]]
+        kohde = KOHDE / "vaiheet" / vk
+        kohde.mkdir(parents=True)
+        (kohde / "index.html").write_text(listaus.render(
+            **yhteiset, juuri="../../", harjoitteet=omat, ryhmat=ryhmat,
+            suodattimet=suodatinvalinnat(s, sn, omat), vaihe=vk,
+            otsikko=sn.vaihe(vk)), encoding="utf-8")
 
     # Sanasto
     (KOHDE / "sanasto").mkdir()
     (KOHDE / "sanasto" / "index.html").write_text(env.get_template("sanasto.html").render(
-        **yhteiset, juuri="../", s=s, otsikko="Sanasto"), encoding="utf-8")
+        **yhteiset, juuri="../", s=s, kaytetyt_vaiheet=kaytetyt_vaiheet(harjoitteet),
+        otsikko="Sanasto"), encoding="utf-8")
 
     # Harjoitesivut
     pohja = env.get_template("harjoite.html")
     for h in harjoitteet:
         kohde = KOHDE / "harjoitteet" / h["tunniste"]
-        kohde.mkdir(parents=True)
+        kohde.mkdir()
         if h["kaavio"]:
             shutil.copy2(h["kansio"] / "kaavio.svg", kohde / "kaavio.svg")
         vp = sn.vastinpari(h["alavaihe"])
