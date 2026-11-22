@@ -3,6 +3,7 @@ tunniste: vapautuminen-varjosta-2v2
 nimi: Vapautuminen varjosta 2v2
 vaihe: hyokkaaminen
 alavaihe: rakentaminen
+myos_alavaiheet: [vastahyokkays]
 alue: keskikolmannes
 paineistaminen: aktiivinen
 kaistat: []
