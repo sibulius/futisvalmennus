@@ -16,6 +16,9 @@ Alavaiheella haettaessa huomioi `alavaihe`-kentän lisäksi `myos_alavaiheet`.
 ## 3. Rakenna eteneminen
 - Tekniikkaharjoitteet (`vaihe: tekniikka`) sopivat lämmittelyyn tai rastiksi,
   kun teeman taito (alavaihe, esim. `vastaanotto`) vastaa harjoituspäivän teemaa.
+- Alkulämmittelyharjoitteet (`vaihe: alkulammittely`) harjoituksen alkuun ja
+  fysiikkaharjoitteet (`vaihe: fysiikka`) teeman mukaan, esim. nopeus heti
+  lämmittelyn jälkeen ja kestävyys loppuun.
 - Lämmittely → pienestä keskuksesta (1v1, 2v1) laajempaan (3v2, 3v3) → peli.
 - Hyödynnä `vastinpari`-kenttää: pelissä toinen joukkue harjoittelee alavaihetta,
   toinen sen vastinparia.

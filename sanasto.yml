@@ -118,9 +118,20 @@ vaiheet:
         tavoite: Perääntyminen, keskustan sulkeminen ja vastahyökkäyksen hidastaminen
         vastinpari: vastahyokkays
 
+  alkulammittely:
+    nimi: Alkulämmittely
+    sallitut_roolit: []
+    ilman_pelin_keskusta: true     # pelin keskusta ja aluetta ei merkitä
+    alavaiheet:
+      dynaaminen_liikkuvuus:  { nimi: Dynaaminen liikkuvuus }
+      lihasaktivointi:        { nimi: Lihasaktivointi }
+      pallollinen_lammittely: { nimi: Pallollinen lämmittely }
+      lammittelyleikit:       { nimi: Lämmittelyleikit }
+
   tekniikka:
     nimi: Tekniikka
     sallitut_roolit: []            # tekninen drilli ilman pelin keskusta
+    ilman_pelin_keskusta: true
     alavaiheet:
       vastaanotto:   { nimi: Vastaanotto }
       syottaminen:   { nimi: Syöttäminen }
@@ -130,6 +141,16 @@ vaiheet:
       laukominen:    { nimi: Laukominen }
       puskeminen:    { nimi: Puskeminen }
       havainnointi:  { nimi: Havainnointi }
+
+  fysiikka:
+    nimi: Fysiikka
+    sallitut_roolit: []
+    ilman_pelin_keskusta: true
+    alavaiheet:
+      nopeus:     { nimi: Nopeus }
+      ketteryys:  { nimi: Ketteryys }
+      voima:      { nimi: Voima }
+      kestavyys:  { nimi: Kestävyys }
 
   vakiotilanne:
     nimi: Vakiotilanne
@@ -151,6 +172,8 @@ saannot:
   - Jos harjoite opettaa selvästi myös toista alavaihetta, se merkitään kenttään myos_alavaiheet (enintään 2). Pelkkää sivuamista ei merkitä; pääluokitus ratkaisee alueen ja roolit.
   - "Rakentaminen = keskikolmanneksen vaihe, ei omalta alueelta avaamista (se on avaaminen)."
   - Tekniikka = tekninen drilli, jossa ei ole pelin vaihetta eikä pelin keskusta; alavaihe on harjoiteltava taito. Pelin keskusta ja aluetta ei merkitä, ja paineistaminen on yleensä 'ei'.
+  - Alkulämmittely ja fysiikka luokitellaan kuten tekniikka – alavaihe on harjoitteen pääasiallinen sisältö, eikä pelin keskusta tai aluetta merkitä. Lämmittelyleikeissä paineistaminen voi olla muu kuin 'ei'.
+  - Pallollinen lämmittely, jonka pääsisältö on yksi tekninen taito, luokitellaan tekniikaksi; alkulämmittely-vaihe on harjoitteille, jotka on tehty nimenomaan lämmittelyksi.
   - Vakiotilanteen kuviota opettava harjoite on vakiotilanne; vakiotilanteen jälkeistä peliä opettava luokitellaan alavaiheen mukaan.
   - Roolien on kuuluttava vaiheen sallittuihin rooleihin; siirtymissä sekä H- että P-roolit ovat sallittuja.
   - Paineistaminen merkitään jokaiseen harjoitteeseen; kun paineistaminen on 'ei', vastarooleja ei ole.

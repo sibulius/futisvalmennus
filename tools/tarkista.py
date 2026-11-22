@@ -104,8 +104,8 @@ def tarkista_harjoite(polku: Path, fm: dict, s: dict, validoija) -> None:
         for k in ("puoli", "tehtavat"):
             if k in fm:
                 virhe(p, f"'{k}' on sallittu vain vakiotilanteissa")
-        if "pelin_keskus" not in fm and fm.get("vaihe") != "tekniikka":
-            virhe(p, "'pelin_keskus' on pakollinen muissa kuin vakiotilanteissa ja tekniikkaharjoitteissa")
+        if "pelin_keskus" not in fm and not vaihe.get("ilman_pelin_keskusta"):
+            virhe(p, f"'pelin_keskus' on pakollinen vaiheessa '{fm['vaihe']}'")
 
     pk = fm.get("pelin_keskus")
     if not isinstance(pk, dict):
