@@ -101,6 +101,19 @@ vaiheet:
         alue: rangaistusalue
         vastinpari: maalin_puolustaminen
 
+  siirtyma_puolustukseen:
+    nimi: Siirtymä puolustukseen (pallonmenetys)
+    sallitut_roolit: [1H, 2H, 3H, 1P, 2P, 3P]
+    alavaiheet:
+      vastaprassi:
+        nimi: Vastaprässi
+        tavoite: Välitön takaisinriisto lähimmillä pelaajilla muutaman sekunnin ajan
+        vastinpari: pallon_turvaaminen
+      uudelleenjarjestaytyminen:
+        nimi: Uudelleenjärjestäytyminen
+        tavoite: Perääntyminen, keskustan sulkeminen ja vastahyökkäyksen hidastaminen
+        vastinpari: vastahyokkays
+
   puolustaminen:
     nimi: Puolustaminen
     sallitut_roolit: [1P, 2P, 3P]
@@ -138,19 +151,6 @@ vaiheet:
         nimi: Pallon turvaaminen
         tavoite: Pallon vieminen pois paineesta ja hallinnan säilyttäminen, kun vastahyökkäys ei ole mahdollinen
         vastinpari: vastaprassi
-
-  siirtyma_puolustukseen:
-    nimi: Siirtymä puolustukseen (pallonmenetys)
-    sallitut_roolit: [1H, 2H, 3H, 1P, 2P, 3P]
-    alavaiheet:
-      vastaprassi:
-        nimi: Vastaprässi
-        tavoite: Välitön takaisinriisto lähimmillä pelaajilla muutaman sekunnin ajan
-        vastinpari: pallon_turvaaminen
-      uudelleenjarjestaytyminen:
-        nimi: Uudelleenjärjestäytyminen
-        tavoite: Perääntyminen, keskustan sulkeminen ja vastahyökkäyksen hidastaminen
-        vastinpari: vastahyokkays
 
   vakiotilanne:
     nimi: Vakiotilanne
