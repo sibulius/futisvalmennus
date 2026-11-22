@@ -42,6 +42,40 @@ paineistaminen:
 # --- Pelin vaiheet ja alavaiheet ------------------------------------------
 vaiheet:
 
+  alkulammittely:
+    nimi: Alkulämmittely
+    sallitut_roolit: []
+    ilman_pelin_keskusta: true     # pelin keskusta ja aluetta ei merkitä
+    alavaiheet:
+      dynaaminen_liikkuvuus:  { nimi: Dynaaminen liikkuvuus }
+      lihasaktivointi:        { nimi: Lihasaktivointi }
+      pallollinen_lammittely: { nimi: Pallollinen lämmittely }
+      lammittelyleikit:       { nimi: Lämmittelyleikit }
+
+  fysiikka:
+    nimi: Fysiikka
+    sallitut_roolit: []
+    ilman_pelin_keskusta: true
+    alavaiheet:
+      nopeus:     { nimi: Nopeus }
+      ketteryys:  { nimi: Ketteryys }
+      voima:      { nimi: Voima }
+      kestavyys:  { nimi: Kestävyys }
+
+  tekniikka:
+    nimi: Tekniikka
+    sallitut_roolit: []            # tekninen drilli ilman pelin keskusta
+    ilman_pelin_keskusta: true
+    alavaiheet:
+      vastaanotto:   { nimi: Vastaanotto }
+      syottaminen:   { nimi: Syöttäminen }
+      kuljettaminen: { nimi: Kuljettaminen }
+      kaantyminen:   { nimi: Kääntyminen }
+      ohittaminen:   { nimi: Ohittaminen }
+      laukominen:    { nimi: Laukominen }
+      puskeminen:    { nimi: Puskeminen }
+      havainnointi:  { nimi: Havainnointi }
+
   hyokkaaminen:
     nimi: Hyökkääminen
     sallitut_roolit: [1H, 2H, 3H]
@@ -117,40 +151,6 @@ vaiheet:
         nimi: Uudelleenjärjestäytyminen
         tavoite: Perääntyminen, keskustan sulkeminen ja vastahyökkäyksen hidastaminen
         vastinpari: vastahyokkays
-
-  alkulammittely:
-    nimi: Alkulämmittely
-    sallitut_roolit: []
-    ilman_pelin_keskusta: true     # pelin keskusta ja aluetta ei merkitä
-    alavaiheet:
-      dynaaminen_liikkuvuus:  { nimi: Dynaaminen liikkuvuus }
-      lihasaktivointi:        { nimi: Lihasaktivointi }
-      pallollinen_lammittely: { nimi: Pallollinen lämmittely }
-      lammittelyleikit:       { nimi: Lämmittelyleikit }
-
-  tekniikka:
-    nimi: Tekniikka
-    sallitut_roolit: []            # tekninen drilli ilman pelin keskusta
-    ilman_pelin_keskusta: true
-    alavaiheet:
-      vastaanotto:   { nimi: Vastaanotto }
-      syottaminen:   { nimi: Syöttäminen }
-      kuljettaminen: { nimi: Kuljettaminen }
-      kaantyminen:   { nimi: Kääntyminen }
-      ohittaminen:   { nimi: Ohittaminen }
-      laukominen:    { nimi: Laukominen }
-      puskeminen:    { nimi: Puskeminen }
-      havainnointi:  { nimi: Havainnointi }
-
-  fysiikka:
-    nimi: Fysiikka
-    sallitut_roolit: []
-    ilman_pelin_keskusta: true
-    alavaiheet:
-      nopeus:     { nimi: Nopeus }
-      ketteryys:  { nimi: Ketteryys }
-      voima:      { nimi: Voima }
-      kestavyys:  { nimi: Kestävyys }
 
   vakiotilanne:
     nimi: Vakiotilanne
