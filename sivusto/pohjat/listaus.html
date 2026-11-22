@@ -1,0 +1,107 @@
+{% extends "pohja.html" %}
+{% block sisalto %}
+<p class="murupolku"><a href="{{ juuri }}">Harjoitepankki</a> › {{ otsikko }}</p>
+<h1>{{ otsikko }}</h1>
+
+<form id="suodattimet" class="suodattimet{% if vaihe %} vaihesivu{% endif %}" role="search">
+  {% if vaihe %}
+  <fieldset class="alavaihenapit">
+    <legend class="piilo">Alavaihe</legend>
+    <label><input type="radio" name="alavaihe" value="" checked><span>Kaikki</span></label>
+    {% for a, nimi, lista in ryhmat %}
+    <label><input type="radio" name="alavaihe" value="{{ a }}"><span>{{ nimi }} <span class="lkm">{{ lista | length }}</span></span></label>
+    {% endfor %}
+  </fieldset>
+  {% endif %}
+  <details id="lisasuodattimet" class="lisasuodattimet">
+    <summary>Lisää suodattimia</summary>
+    <div class="suodatinruudukko">
+      <label class="leveä">Haku
+        <input type="search" name="haku" placeholder="Nimi tai painopiste">
+      </label>
+      {% if not vaihe %}
+      <label>Vaihe
+        <select name="vaihe"><option value="">Kaikki</option>
+          {% for k, nimi, _ in suodattimet.vaiheet %}<option value="{{ k }}">{{ nimi }}</option>{% endfor %}
+        </select>
+      </label>
+      <label>Alavaihe
+        <select name="alavaihe"><option value="">Kaikki</option>
+          {% for k, _, alat in suodattimet.vaiheet %}{% for a, nimi in alat %}
+          <option value="{{ a }}" data-vaihe="{{ k }}">{{ nimi }}</option>{% endfor %}{% endfor %}
+        </select>
+      </label>
+      {% endif %}
+      {% if suodattimet.alueet %}
+      <label>Alue
+        <select name="alue"><option value="">Kaikki</option>
+          {% for k, nimi in suodattimet.alueet %}<option value="{{ k }}">{{ nimi }}</option>{% endfor %}
+        </select>
+      </label>
+      {% endif %}
+      {% if suodattimet.tilanteet %}
+      <label>Tilanne
+        <select name="tilanne"><option value="">Kaikki</option>
+          {% for t in suodattimet.tilanteet %}<option>{{ t }}</option>{% endfor %}
+        </select>
+      </label>
+      {% endif %}
+      {% if suodattimet.roolit %}
+      <label>Rooli
+        <select name="rooli"><option value="">Kaikki</option>
+          {% for r in suodattimet.roolit %}<option value="{{ r }}">{{ r }} – {{ sn.roolit[r] }}</option>{% endfor %}
+        </select>
+      </label>
+      {% endif %}
+      {% if suodattimet.paineet | length > 1 %}
+      <label>Paineistaminen
+        <select name="paineistaminen"><option value="">Kaikki</option>
+          {% for k, nimi in suodattimet.paineet %}<option value="{{ k }}">{{ nimi }}</option>{% endfor %}
+        </select>
+      </label>
+      {% endif %}
+      {% if suodattimet.iat %}
+      <label>Ikäluokka
+        <select name="ika"><option value="">Kaikki</option>
+          {% for i in suodattimet.iat %}<option>{{ i }}</option>{% endfor %}
+        </select>
+      </label>
+      {% endif %}
+      {% if suodattimet.kaistat %}
+      <label>Kaista
+        <select name="kaista"><option value="">Kaikki</option>
+          {% for k, nimi in suodattimet.kaistat %}<option value="{{ k }}">{{ nimi }}</option>{% endfor %}
+        </select>
+      </label>
+      {% endif %}
+      {% if suodattimet.puolet %}
+      <label>Puoli
+        <select name="puoli"><option value="">Kaikki</option>
+          {% for p in suodattimet.puolet %}<option value="{{ p }}">{{ p | capitalize }}</option>{% endfor %}
+        </select>
+      </label>
+      {% endif %}
+      <label>Kesto enintään (min)
+        <input type="number" name="kesto" min="1" max="120" inputmode="numeric">
+      </label>
+      <label>Pelaajia käytettävissä
+        <input type="number" name="pelaajat" min="1" max="40" inputmode="numeric">
+      </label>
+      <button type="reset">Tyhjennä</button>
+    </div>
+  </details>
+</form>
+
+<p id="maara" class="maara" aria-live="polite">{{ harjoitteet | length }} harjoitetta</p>
+{% for a, nimi, lista in ryhmat %}
+<section class="ryhma">
+  {% if nimi %}<h2 class="ryhmaotsikko">{{ nimi }}</h2>{% endif %}
+  <ul class="kortit">
+    {% for h in lista %}{% include "kortti.html" %}{% endfor %}
+  </ul>
+</section>
+{% endfor %}
+<p id="tyhja" class="tyhja" hidden>Ei harjoitteita näillä valinnoilla.</p>
+{% if vaihe %}<p class="kaikki-linkki"><a href="{{ juuri }}harjoitteet/">Kaikki harjoitteet ja suodattimet vaiheiden yli →</a></p>{% endif %}
+{% endblock %}
+{% block skriptit %}<script src="{{ juuri }}staattinen/suodatus.js"></script>{% endblock %}

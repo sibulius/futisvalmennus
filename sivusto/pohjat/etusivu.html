@@ -1,69 +1,43 @@
 {% extends "pohja.html" %}
 {% block sisalto %}
-<h1>Harjoitteet</h1>
-<p class="johdanto">Avoin jalkapallon harjoitepankki. Harjoitteet on luokiteltu pelin vaiheiden,
-alavaiheiden ja pelin keskuksen roolien mukaan – ks. <a href="sanasto/">sanasto</a>.</p>
+<h1>Harjoitepankki</h1>
+<p class="johdanto">Avoin jalkapallon harjoitepankki. Valitse pelin vaihe – tai hae kaikista
+{{ maara }} harjoitteesta.</p>
 
-<form id="suodattimet" class="suodattimet" role="search">
-  <label class="leveä">Haku
-    <input type="search" name="haku" placeholder="Nimi tai painopiste">
-  </label>
-  <label>Vaihe
-    <select name="vaihe"><option value="">Kaikki</option>
-      {% for k, nimi, _ in suodattimet.vaiheet %}<option value="{{ k }}">{{ nimi }}</option>{% endfor %}
-    </select>
-  </label>
-  <label>Alavaihe
-    <select name="alavaihe"><option value="">Kaikki</option>
-      {% for k, _, alat in suodattimet.vaiheet %}{% for a, nimi in alat %}
-      <option value="{{ a }}" data-vaihe="{{ k }}">{{ nimi }}</option>{% endfor %}{% endfor %}
-    </select>
-  </label>
-  <label>Alue
-    <select name="alue"><option value="">Kaikki</option>
-      {% for k, nimi in suodattimet.alueet %}<option value="{{ k }}">{{ nimi }}</option>{% endfor %}
-    </select>
-  </label>
-  <label>Tilanne
-    <select name="tilanne"><option value="">Kaikki</option>
-      {% for t in suodattimet.tilanteet %}<option>{{ t }}</option>{% endfor %}
-    </select>
-  </label>
-  <label>Rooli
-    <select name="rooli"><option value="">Kaikki</option>
-      {% for r in suodattimet.roolit %}<option value="{{ r }}">{{ r }} – {{ sn.roolit[r] }}</option>{% endfor %}
-    </select>
-  </label>
-  <label>Paineistaminen
-    <select name="paineistaminen"><option value="">Kaikki</option>
-      {% for k, nimi in suodattimet.paineet %}<option value="{{ k }}">{{ nimi }}</option>{% endfor %}
-    </select>
-  </label>
-  <label>Ikäluokka
-    <select name="ika"><option value="">Kaikki</option>
-      {% for i in suodattimet.iat %}<option>{{ i }}</option>{% endfor %}
-    </select>
-  </label>
-  {% if suodattimet.kaistat %}
-  <label>Kaista
-    <select name="kaista"><option value="">Kaikki</option>
-      {% for k, nimi in suodattimet.kaistat %}<option value="{{ k }}">{{ nimi }}</option>{% endfor %}
-    </select>
-  </label>
-  {% endif %}
-  <label>Kesto enintään (min)
-    <input type="number" name="kesto" min="1" max="120" inputmode="numeric">
-  </label>
-  <label>Pelaajia käytettävissä
-    <input type="number" name="pelaajat" min="1" max="40" inputmode="numeric">
-  </label>
-  <button type="reset">Tyhjennä</button>
+<form class="etusivuhaku" action="harjoitteet/" method="get" role="search">
+  <label for="haku" class="piilo">Hae harjoitteita</label>
+  <input id="haku" type="search" name="haku" placeholder="Hae nimellä tai painopisteellä">
+  <button type="submit">Hae</button>
 </form>
 
-<p id="maara" class="maara" aria-live="polite">{{ harjoitteet | length }} harjoitetta</p>
-<ul id="lista" class="kortit">
-  {% for h in harjoitteet %}{% include "kortti.html" %}{% endfor %}
+<ul class="vaihekortit">
+  {% for v in vaihekortit %}
+  <li class="vaihekortti{% if not v.maara %} tyhja-vaihe{% endif %}">
+    <h2>{% if v.maara %}<a href="vaiheet/{{ v.avain }}/">{{ v.nimi }}</a>{% else %}{{ v.nimi }}{% endif %}</h2>
+    <p class="maara">{% if v.maara %}{{ v.maara }} harjoite{{ "tta" if v.maara != 1 }}{% else %}Ei vielä harjoitteita{% endif %}</p>
+    <ul class="alavaiheet">
+      {% for a, nimi, n in v.alavaiheet %}
+      <li>{% if n %}<a href="vaiheet/{{ v.avain }}/?alavaihe={{ a }}">{{ nimi }} <span class="lkm">{{ n }}</span></a>{% else %}<span class="tyhja-alavaihe">{{ nimi }}</span>{% endif %}</li>
+      {% endfor %}
+    </ul>
+  </li>
+  {% endfor %}
 </ul>
-<p id="tyhja" class="tyhja" hidden>Ei harjoitteita näillä valinnoilla.</p>
+
+<p class="kaikki-linkki"><a href="harjoitteet/">Kaikki harjoitteet ja suodattimet vaiheiden yli →</a></p>
 {% endblock %}
-{% block skriptit %}<script src="staattinen/suodatus.js"></script>{% endblock %}
+{% block skriptit %}
+<script>
+// Vanhat suodatuslinkit (/?alavaihe=…) ohjataan vaihesivulle tai kaikkien harjoitteiden listaan.
+(function () {
+  if (!location.search) return;
+  var q = new URLSearchParams(location.search);
+  var alavaiheet = {{ alavaihe_vaihe | tojson }};
+  var vaihe = q.get("vaihe") || alavaiheet[q.get("alavaihe")];
+  q.delete("vaihe");
+  var kohde = vaihe && /^[a-z_]+$/.test(vaihe) ? "vaiheet/" + vaihe + "/" : "harjoitteet/";
+  var loput = q.toString();
+  location.replace(kohde + (loput ? "?" + loput : ""));
+})();
+</script>
+{% endblock %}

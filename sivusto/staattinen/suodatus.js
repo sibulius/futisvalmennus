@@ -1,13 +1,17 @@
-// Harjoitelistan suodatus. Valinnat tallentuvat osoitteeseen (?vaihe=…&alue=…),
-// joten suodatetun näkymän voi jakaa linkkinä.
+// Harjoitelistan suodatus (vaihesivut ja Kaikki harjoitteet). Valinnat tallentuvat
+// osoitteeseen (?alavaihe=…&tilanne=…), joten suodatetun näkymän voi jakaa linkkinä.
 (function () {
   const lomake = document.getElementById("suodattimet");
-  const kortit = Array.from(document.querySelectorAll("#lista .kortti"));
+  const kortit = Array.from(document.querySelectorAll(".kortti"));
+  const ryhmat = Array.from(document.querySelectorAll(".ryhma"));
   const maara = document.getElementById("maara");
   const tyhja = document.getElementById("tyhja");
-  const alavaihe = lomake.elements.alavaihe;
+  const lisat = document.getElementById("lisasuodattimet");
+  const vaiheValikko = lomake.elements.vaihe;          // vain Kaikki harjoitteet -sivulla
+  const alavaihe = lomake.elements.alavaihe;          // select tai radionapit
   const kentat = ["haku", "vaihe", "alavaihe", "alue", "tilanne", "rooli",
-                  "paineistaminen", "ika", "kaista", "kesto", "pelaajat"];
+                  "paineistaminen", "ika", "kaista", "puoli", "kesto", "pelaajat"];
+  const lisaKentat = kentat.filter((k) => k !== "vaihe" && k !== "alavaihe");
 
   function arvot() {
     const a = {};
@@ -21,7 +25,7 @@
   function sopii(d, a) {
     const lista = (s) => (s ? s.split(" ") : []);
     if (a.haku && !d.teksti.includes(a.haku.toLowerCase())) return false;
-    for (const k of ["vaihe", "alavaihe", "alue", "tilanne", "paineistaminen"]) {
+    for (const k of ["vaihe", "alavaihe", "alue", "tilanne", "paineistaminen", "puoli"]) {
       if (a[k] && d[k] !== a[k]) return false;
     }
     if (a.rooli && !lista(d.roolit).includes(a.rooli)) return false;
@@ -32,9 +36,10 @@
     return true;
   }
 
-  // Alavaihevalikossa näytetään vain valitun vaiheen alavaiheet.
+  // Kaikki harjoitteet -sivulla alavaihevalikossa näytetään vain valitun vaiheen alavaiheet.
   function paivitaAlavaiheet() {
-    const vaihe = lomake.elements.vaihe.value;
+    if (!vaiheValikko || !alavaihe.options) return;
+    const vaihe = vaiheValikko.value;
     for (const opt of alavaihe.options) {
       if (!opt.value) continue;
       opt.hidden = opt.disabled = !!vaihe && opt.dataset.vaihe !== vaihe;
@@ -51,6 +56,7 @@
       k.hidden = !nakyy;
       if (nakyy) n++;
     }
+    for (const r of ryhmat) r.hidden = !r.querySelector(".kortti:not([hidden])");
     maara.textContent = n + " / " + kortit.length + " harjoitetta";
     tyhja.hidden = n !== 0;
     if (tallenna) {
@@ -59,17 +65,27 @@
     }
   }
 
-  // Lue alkutila osoitteesta. Valinnaksi kelpaa vain valikossa oleva arvo.
+  function kelpaa(el, arvo) {
+    if (el.tagName === "SELECT") return Array.from(el.options).some((o) => o.value === arvo);
+    if (el instanceof RadioNodeList) return Array.from(el).some((r) => r.value === arvo);
+    return true;
+  }
+
+  // Lue alkutila osoitteesta. Valinnaksi kelpaa vain tarjolla oleva arvo.
   const q = new URLSearchParams(location.search);
   for (const k of kentat) {
     const el = lomake.elements[k];
-    if (!el || !q.has(k)) continue;
-    if (el.tagName === "SELECT" && !Array.from(el.options).some((o) => o.value === q.get(k))) continue;
+    if (!el || !q.has(k) || !kelpaa(el, q.get(k))) continue;
     el.value = q.get(k);
   }
-  // Alavaihe-linkki valitsee myös vaiheen.
-  if (alavaihe.value && !lomake.elements.vaihe.value) {
-    lomake.elements.vaihe.value = alavaihe.selectedOptions[0].dataset.vaihe;
+  if (vaiheValikko && alavaihe.value && !vaiheValikko.value) {
+    vaiheValikko.value = alavaihe.selectedOptions[0].dataset.vaihe;
+  }
+
+  // Lisäsuodattimet auki leveällä näytöllä tai kun jokin niistä on käytössä.
+  if (window.matchMedia("(min-width: 760px)").matches ||
+      lisaKentat.some((k) => lomake.elements[k] && lomake.elements[k].value)) {
+    lisat.open = true;
   }
 
   lomake.addEventListener("input", () => paivita(true));

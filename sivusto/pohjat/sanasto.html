@@ -11,7 +11,7 @@
   {% if v.sallitut_roolit %}<p class="pieni">Sallitut roolit: {{ v.sallitut_roolit | join(", ") }}</p>{% endif %}
   <dl>
   {% for ak, a in v.alavaiheet.items() %}
-    <dt><a href="../?alavaihe={{ ak }}">{{ a.nimi }}</a></dt>
+    <dt>{% if vk in kaytetyt_vaiheet %}<a href="../vaiheet/{{ vk }}/?alavaihe={{ ak }}">{{ a.nimi }}</a>{% else %}{{ a.nimi }}{% endif %}</dt>
     <dd>{% if a.tavoite %}{{ a.tavoite }}{% endif %}
       {% if a.alue %}<br><span class="pieni">Alue: {{ s.alueet[a.alue] }}</span>{% endif %}
       {% if a.vastinpari %}<span class="pieni"> · Vastinpari: {{ sn.alavaihe(a.vastinpari) }}</span>{% endif %}

@@ -44,33 +44,66 @@ code { font-size: .9em; }
 
 .johdanto { color: var(--heikko); max-width: 60ch; }
 
+/* Etusivu */
+.piilo { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.etusivuhaku { display: flex; gap: 8px; max-width: 560px; margin: 16px 0 24px; }
+.etusivuhaku input { flex: 1; min-width: 0; }
+.vaihekortit { list-style: none; padding: 0; margin: 0; display: grid; gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+.vaihekortti { background: var(--pinta); border: 1px solid var(--raja); border-radius: 10px; padding: 16px 18px; }
+.vaihekortti:not(.tyhja-vaihe) { border-top: 4px solid var(--korostus); }
+.vaihekortti h2 { margin: 0; font-size: 1.25rem; }
+.vaihekortti h2 a { color: var(--teksti); text-decoration: none; }
+.vaihekortti h2 a:hover { color: var(--korostus); text-decoration: underline; }
+.vaihekortti .maara { margin: 2px 0 12px; font-size: .9rem; }
+.tyhja-vaihe { opacity: .55; }
+.alavaiheet { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.alavaiheet a, .tyhja-alavaihe { display: inline-block; border-radius: 999px; padding: 2px 10px; font-size: .85rem; }
+.alavaiheet a { background: var(--korostus-tausta); color: var(--teksti); text-decoration: none; }
+.alavaiheet a:hover { outline: 1px solid var(--korostus); }
+.tyhja-alavaihe { color: var(--heikko); border: 1px dashed var(--raja); }
+.lkm { font-weight: 700; color: var(--korostus); margin-left: 2px; }
+.kaikki-linkki { margin-top: 28px; }
+
 /* Suodattimet */
-.suodattimet {
-  display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  background: var(--pinta); border: 1px solid var(--raja); border-radius: 10px; padding: 16px; margin: 16px 0;
-}
-.suodattimet label { display: flex; flex-direction: column; gap: 4px; font-size: .85rem; color: var(--heikko); }
-.suodattimet .leveä { grid-column: 1 / -1; }
-.suodattimet input, .suodattimet select, button {
+.suodattimet { margin: 16px 0; }
+.alavaihenapit { border: 0; padding: 0; margin: 0 0 12px; display: flex; flex-wrap: wrap; gap: 8px; }
+.alavaihenapit label { cursor: pointer; }
+.alavaihenapit input { position: absolute; opacity: 0; pointer-events: none; }
+.alavaihenapit span { display: inline-block; border: 1px solid var(--raja); background: var(--pinta);
+  border-radius: 999px; padding: 5px 14px; }
+.alavaihenapit span .lkm { border: 0; padding: 0; background: none; }
+.alavaihenapit input:checked + span { background: var(--korostus); border-color: var(--korostus); color: var(--pinta); }
+.alavaihenapit input:checked + span .lkm { color: var(--pinta); }
+.alavaihenapit input:focus-visible + span { outline: 2px solid var(--korostus); outline-offset: 2px; }
+.lisasuodattimet { background: var(--pinta); border: 1px solid var(--raja); border-radius: 10px; }
+.lisasuodattimet summary { cursor: pointer; padding: 10px 16px; font-weight: 600; }
+.suodatinruudukko { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  padding: 0 16px 16px; }
+.suodatinruudukko label { display: flex; flex-direction: column; gap: 4px; font-size: .85rem; color: var(--heikko); }
+.suodatinruudukko .leveä { grid-column: 1 / -1; }
+.suodatinruudukko input, .suodatinruudukko select, .etusivuhaku input, button {
   font: inherit; font-size: 1rem; color: var(--teksti); background: var(--tausta);
   border: 1px solid var(--raja); border-radius: 6px; padding: 6px 8px; min-height: 38px; width: 100%;
 }
 button { width: auto; cursor: pointer; align-self: end; }
 .maara { color: var(--heikko); }
 
-/* Kortit */
-.kortit { list-style: none; padding: 0; margin: 0; display: grid; gap: 16px;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
-.kortti a { display: flex; flex-direction: column; height: 100%; text-decoration: none; color: inherit;
+/* Kortit (matala vaakakortti) */
+.ryhmaotsikko { font-size: 1.15rem; margin: 24px 0 10px; }
+.kortit { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); }
+.kortti a { display: flex; height: 100%; text-decoration: none; color: inherit;
   background: var(--pinta); border: 1px solid var(--raja); border-radius: 10px; overflow: hidden; }
 .kortti a:hover, .kortti a:focus-visible { border-color: var(--korostus); }
-.kortti img { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; background: #4f8a3a; }
-.kortti-teksti { padding: 12px 14px 14px; }
-.kortti h2 { font-size: 1.1rem; margin: 0 0 4px; }
-.kortti p { margin: 0 0 8px; font-size: .95rem; }
-.kortti .luokka { color: var(--korostus); font-size: .85rem; font-weight: 600; }
-.merkit { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
-.merkit li { background: var(--korostus-tausta); border-radius: 999px; padding: 1px 10px; font-size: .8rem; }
+.kortti img { flex: 0 0 128px; width: 128px; object-fit: contain; background: #4f8a3a; }
+.kortti-teksti { padding: 10px 12px; min-width: 0; }
+.kortti h2, .kortti h3 { font-size: 1.02rem; margin: 0 0 2px; }
+.kortti p { margin: 0 0 6px; font-size: .9rem; }
+.kortti .luokka { color: var(--korostus); font-size: .8rem; font-weight: 600; }
+.kortti-painopiste { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.merkit { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 4px; }
+.merkit li { background: var(--korostus-tausta); border-radius: 999px; padding: 0 8px; font-size: .75rem; }
 .tyhja { padding: 24px; text-align: center; color: var(--heikko); }
 
 /* Harjoitesivu */
@@ -87,6 +120,8 @@ dd { margin-left: 0; }
 
 @media (max-width: 520px) {
   h1 { font-size: 1.5rem; }
+  .kortit { grid-template-columns: 1fr; }
+  .kortti img { flex-basis: 96px; width: 96px; }
   .luokittelu th, .luokittelu td { padding: 6px 8px; }
   .luokittelu th { white-space: normal; }
 }

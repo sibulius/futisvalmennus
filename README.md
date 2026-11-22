@@ -34,9 +34,10 @@ tarkistuksen jokaisesta pushista ja pull requestista.
 ## Verkkosivu
 
 Pankki julkaistaan osoitteessa <https://sibulius.github.io/futisvalmennus/>.
-Etusivulla harjoitteita voi suodattaa vaiheen, alavaiheen, alueen, tilanteen,
-roolin, paineistamisen, ikäluokan, keston ja pelaajamäärän mukaan; suodatetun
-näkymän voi jakaa linkkinä.
+Etusivulla pelin vaiheet ovat kortteina. Vaiheen sivulla harjoitteet on ryhmitelty
+alavaiheittain, ja niitä voi suodattaa alueen, tilanteen, roolin, paineistamisen,
+ikäluokan, keston ja pelaajamäärän mukaan. Kaikki harjoitteet -sivulla samat
+suodattimet toimivat vaiheiden yli. Suodatetun näkymän voi jakaa linkkinä.
 
 Sivu rakennetaan `main`-haarasta automaattisesti (GitHub Actions). Paikallinen esikatselu:
 

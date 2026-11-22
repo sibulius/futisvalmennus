@@ -5,15 +5,15 @@
     data-tilanne="{{ pk.tilanne or '' }}"
     data-roolit="{{ ((pk.roolit or []) + (pk.vastaroolit or [])) | join(' ') }}"
     data-paineistaminen="{{ h.paineistaminen }}" data-ika="{{ (h.ika or []) | join(' ') }}"
-    data-kaistat="{{ (h.kaistat or []) | join(' ') }}"
+    data-kaistat="{{ (h.kaistat or []) | join(' ') }}" data-puoli="{{ h.puoli or '' }}"
     data-kesto="{{ h.kesto_min }}" data-pelaajat="{{ h.pelaajat }}"
     data-teksti="{{ (h.nimi ~ ' ' ~ h.painopiste) | lower }}">
   <a href="{{ juuri }}harjoitteet/{{ h.tunniste }}/">
     {% if h.kaavio %}<img src="{{ juuri }}harjoitteet/{{ h.tunniste }}/kaavio.svg" alt="" loading="lazy">{% endif %}
     <div class="kortti-teksti">
-      <h2>{{ h.nimi }}</h2>
-      <p class="luokka">{{ sn.vaihe(h.vaihe) }} · {{ sn.alavaihe(h.alavaihe) }}</p>
-      <p>{{ h.painopiste }}</p>
+      <h3>{{ h.nimi }}</h3>
+      {% if not vaihe %}<p class="luokka">{{ sn.vaihe(h.vaihe) }} · {{ sn.alavaihe(h.alavaihe) }}</p>{% endif %}
+      <p class="kortti-painopiste">{{ h.painopiste }}</p>
       <ul class="merkit">
         {% if pk.tilanne %}<li>{{ pk.tilanne }}</li>{% endif %}
         <li>{{ h.kesto_min }} min</li>
