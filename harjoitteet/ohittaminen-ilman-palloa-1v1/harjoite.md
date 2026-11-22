@@ -1,14 +1,9 @@
 ---
 tunniste: ohittaminen-ilman-palloa-1v1
 nimi: Ohittaminen ilman palloa 1v1
-vaihe: hyokkaaminen
-alavaihe: murtautuminen
-alue: hyokkayskolmannes
+vaihe: tekniikka
+alavaihe: ohittaminen
 paineistaminen: aktiivinen
-pelin_keskus:
-  tilanne: 1v1
-  roolit: [1H]
-  vastaroolit: [1P]
 painopiste: Vartaloharhautus sekä suunnan ja tempon muutokset ilman palloa; puolustajalla nopea lähtö vastaan, jarrutus ja ohjaaminen sivurajaa kohti; nopea reagointi roolin vaihtuessa
 ika: [U12, U13]
 kesto_min: 15
