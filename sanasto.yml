@@ -166,13 +166,23 @@ vaiheet:
       rangaistuspotku: { nimi: Rangaistuspotku }
       # sisaanpotku:   { nimi: Sisäänpotku }   # ota käyttöön, jos ikäluokassa käytössä
 
+  loppufysiikka:
+    nimi: Loppufysiikka
+    sallitut_roolit: []
+    ilman_pelin_keskusta: true
+    alavaiheet:
+      keskivartalo:     { nimi: Keskivartalo }
+      lihaskunto:       { nimi: Lihaskunto }
+      loppujuoksut:     { nimi: Loppujuoksut }
+      loppuverryttely:  { nimi: Loppuverryttely }
+
 # --- Luokittelusäännöt (skillit ja CLAUDE.md) -----------------------------
 saannot:
   - Harjoitteella on yksi päävaihe ja yksi alavaihe, vaikka se sivuaisi muitakin.
   - Jos harjoite opettaa selvästi myös toista alavaihetta, se merkitään kenttään myos_alavaiheet (enintään 2). Pelkkää sivuamista ei merkitä; pääluokitus ratkaisee alueen ja roolit.
   - "Rakentaminen = keskikolmanneksen vaihe, ei omalta alueelta avaamista (se on avaaminen)."
   - Tekniikka = tekninen drilli, jossa ei ole pelin vaihetta eikä pelin keskusta; alavaihe on harjoiteltava taito. Pelin keskusta ja aluetta ei merkitä, ja paineistaminen on yleensä 'ei'.
-  - Alkulämmittely ja fysiikka luokitellaan kuten tekniikka – alavaihe on harjoitteen pääasiallinen sisältö, eikä pelin keskusta tai aluetta merkitä. Lämmittelyleikeissä paineistaminen voi olla muu kuin 'ei'.
+  - Alkulämmittely, fysiikka ja loppufysiikka luokitellaan kuten tekniikka – alavaihe on harjoitteen pääasiallinen sisältö, eikä pelin keskusta tai aluetta merkitä. Lämmittelyleikeissä paineistaminen voi olla muu kuin 'ei'. Loppufysiikka on harjoituksen lopuksi tehtävä fyysinen osio; muut fyysiset harjoitteet ovat fysiikkaa.
   - Pallollinen lämmittely, jonka pääsisältö on yksi tekninen taito, luokitellaan tekniikaksi; alkulämmittely-vaihe on harjoitteille, jotka on tehty nimenomaan lämmittelyksi.
   - Vakiotilanteen kuviota opettava harjoite on vakiotilanne; vakiotilanteen jälkeistä peliä opettava luokitellaan alavaiheen mukaan.
   - Roolien on kuuluttava vaiheen sallittuihin rooleihin; siirtymissä sekä H- että P-roolit ovat sallittuja.

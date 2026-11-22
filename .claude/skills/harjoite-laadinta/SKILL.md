@@ -26,7 +26,8 @@ Jos käyttäjä antaa vapaan kuvauksen, päättele luokittelu ja näytä se hyv�
 - Tekninen drilli ilman vastustajaa ja pelin vaihetta: `vaihe: tekniikka`,
   alavaiheeksi harjoiteltava taito, `paineistaminen: ei`; `pelin_keskus` ja `alue` jätetään pois.
 - Lämmittelyksi tehty harjoite: `vaihe: alkulammittely`; fyysistä ominaisuutta
-  kehittävä harjoite: `vaihe: fysiikka`. Kuten tekniikassa, `pelin_keskus` ja `alue`
+  kehittävä harjoite: `vaihe: fysiikka`; harjoituksen lopuksi tehtävä
+  fyysinen osio: `vaihe: loppufysiikka`. Kuten tekniikassa, `pelin_keskus` ja `alue`
   jätetään pois (sanastossa `ilman_pelin_keskusta: true`).
 
 ## 4. Luo tiedostot
