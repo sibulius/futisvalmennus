@@ -31,6 +31,20 @@ Täydet määritelmät ja säännöt: [`sanasto.yml`](sanasto.yml).
 Claude Codella sama hoituu `harjoite-laadinta`-skillillä. GitHub Actions ajaa
 tarkistuksen jokaisesta pushista ja pull requestista.
 
+## Verkkosivu
+
+Pankki julkaistaan osoitteessa <https://sibulius.github.io/futisvalmennus/>.
+Etusivulla harjoitteita voi suodattaa vaiheen, alavaiheen, alueen, tilanteen,
+roolin, paineistamisen, ikäluokan, keston ja pelaajamäärän mukaan; suodatetun
+näkymän voi jakaa linkkinä.
+
+Sivu rakennetaan `main`-haarasta automaattisesti (GitHub Actions). Paikallinen esikatselu:
+
+```
+pip install pyyaml markdown jinja2
+python tools/sivusto.py --serve   # http://localhost:8000
+```
+
 ## Lisenssit
 
 - Harjoitteet ja sanasto: [CC BY 4.0](LICENSE)

@@ -1,0 +1,25 @@
+{# Harjoitekortti; data-attribuutit suodatusta varten. #}
+{% set pk = h.pelin_keskus or {} %}
+<li class="kortti"
+    data-vaihe="{{ h.vaihe }}" data-alavaihe="{{ h.alavaihe }}" data-alue="{{ h.alue or '' }}"
+    data-tilanne="{{ pk.tilanne or '' }}"
+    data-roolit="{{ ((pk.roolit or []) + (pk.vastaroolit or [])) | join(' ') }}"
+    data-paineistaminen="{{ h.paineistaminen }}" data-ika="{{ (h.ika or []) | join(' ') }}"
+    data-kaistat="{{ (h.kaistat or []) | join(' ') }}"
+    data-kesto="{{ h.kesto_min }}" data-pelaajat="{{ h.pelaajat }}"
+    data-teksti="{{ (h.nimi ~ ' ' ~ h.painopiste) | lower }}">
+  <a href="{{ juuri }}harjoitteet/{{ h.tunniste }}/">
+    {% if h.kaavio %}<img src="{{ juuri }}harjoitteet/{{ h.tunniste }}/kaavio.svg" alt="" loading="lazy">{% endif %}
+    <div class="kortti-teksti">
+      <h2>{{ h.nimi }}</h2>
+      <p class="luokka">{{ sn.vaihe(h.vaihe) }} · {{ sn.alavaihe(h.alavaihe) }}</p>
+      <p>{{ h.painopiste }}</p>
+      <ul class="merkit">
+        {% if pk.tilanne %}<li>{{ pk.tilanne }}</li>{% endif %}
+        <li>{{ h.kesto_min }} min</li>
+        <li>{{ h.pelaajat }} pel.</li>
+        {% for i in h.ika or [] %}<li>{{ i }}</li>{% endfor %}
+      </ul>
+    </div>
+  </a>
+</li>

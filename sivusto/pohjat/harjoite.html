@@ -1,0 +1,55 @@
+{% extends "pohja.html" %}
+{% block kuvaus %}{{ h.painopiste }}{% endblock %}
+{% set pk = h.pelin_keskus or {} %}
+{% macro suodatin(avain, arvo, teksti) %}<a href="{{ juuri }}?{{ avain }}={{ arvo | urlencode }}">{{ teksti }}</a>{% endmacro %}
+{% block sisalto %}
+<p class="murupolku"><a href="{{ juuri }}">Harjoitteet</a> › {{ sn.alavaihe(h.alavaihe) }}</p>
+<h1>{{ h.nimi }}</h1>
+<p class="painopiste">{{ h.painopiste }}</p>
+
+<table class="luokittelu">
+  <tr><th>Vaihe</th><td>{{ suodatin("vaihe", h.vaihe, sn.vaihe(h.vaihe)) }}</td></tr>
+  <tr><th>Alavaihe</th><td>{{ suodatin("alavaihe", h.alavaihe, sn.alavaihe(h.alavaihe)) }}</td></tr>
+  {% if h.alue %}<tr><th>Alue</th><td>{{ suodatin("alue", h.alue, sn.alue(h.alue)) }}</td></tr>{% endif %}
+  {% if pk.tilanne %}<tr><th>Pelin keskus</th><td>{{ suodatin("tilanne", pk.tilanne, pk.tilanne) }}:
+    {% for r in pk.roolit %}{{ suodatin("rooli", r, r) }}{{ ", " if not loop.last }}{% endfor %}
+    {% if pk.vastaroolit %} vastaan {% for r in pk.vastaroolit %}{{ suodatin("rooli", r, r) }}{{ ", " if not loop.last }}{% endfor %}{% endif %}
+  </td></tr>{% endif %}
+  <tr><th>Paineistaminen</th><td>{{ suodatin("paineistaminen", h.paineistaminen, sn.paine(h.paineistaminen)) }}</td></tr>
+  {% if h.kaistat %}<tr><th>Kaistat</th><td>{% for k in h.kaistat %}{{ suodatin("kaista", k, sn.kaista_lyh(k)) }} <span class="pieni">({{ sn.kaista(k) }})</span>{{ ", " if not loop.last }}{% endfor %}</td></tr>{% endif %}
+  {% if h.puoli %}<tr><th>Puoli</th><td>{{ h.puoli }}</td></tr>{% endif %}
+  {% if h.tehtavat %}<tr><th>Tehtävät</th><td>{{ h.tehtavat | join(", ") }}</td></tr>{% endif %}
+  {% if h.ika %}<tr><th>Ikäluokka</th><td>{% for i in h.ika %}{{ suodatin("ika", i, i) }}{{ ", " if not loop.last }}{% endfor %}</td></tr>{% endif %}
+  <tr><th>Kesto</th><td>{{ h.kesto_min }} min</td></tr>
+  <tr><th>Pelaajat</th><td>{{ h.pelaajat }}</td></tr>
+  {% if h.valineet %}<tr><th>Välineet</th><td>{{ h.valineet | join(", ") }}</td></tr>{% endif %}
+</table>
+
+<article class="kuvaus">
+{{ h.runko_html | safe }}
+</article>
+
+{% if h.variaatiot_html %}
+<section class="variaatiot">
+  <h2>Variaatiot</h2>
+  {{ h.variaatiot_html | safe }}
+</section>
+{% endif %}
+
+{% if vastinpari %}
+<section class="vastinpari">
+  <h2>Vastinpari: {{ sn.alavaihe(vastinpari) }}</h2>
+  {% if vastinparin %}
+  <ul>{% for x in vastinparin %}<li><a href="{{ juuri }}harjoitteet/{{ x.tunniste }}/">{{ x.nimi }}</a></li>{% endfor %}</ul>
+  {% else %}
+  <p>Pankissa ei vielä ole vastinparin harjoitteita.</p>
+  {% endif %}
+</section>
+{% endif %}
+
+<p class="toiminnot">
+  <button type="button" onclick="window.print()">Tulosta</button>
+  <a href="https://github.com/{{ repo }}/edit/{{ haara }}/harjoitteet/{{ h.tunniste }}/harjoite.md">Muokkaa GitHubissa</a>
+  · <span class="pieni">Tunniste: <code>{{ h.tunniste }}</code></span>
+</p>
+{% endblock %}
