@@ -3,6 +3,7 @@ tunniste: malli                 # = kansion nimi
 nimi: Harjoitteen nimi
 vaihe: hyokkaaminen             # sanasto.yml → vaiheet
 alavaihe: murtautuminen         # vaiheen alavaiheet
+# myos_alavaiheet: []           # valinnainen: alavaiheet, joita harjoite opettaa selvästi myös (enintään 2)
 alue: hyokkayskolmannes         # sanasto.yml → alueet
 paineistaminen: aktiivinen      # ei | passiivinen | puoliaktiivinen | aktiivinen
 kaistat: []                     # valinnainen, esim. [oikea_laitakaista, oikea_sisempi_laitakaista]

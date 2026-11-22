@@ -16,7 +16,8 @@ Kysy käyttäjältä puuttuvat tiedot, enintään yhdellä kysymyskierroksella:
 Jos käyttäjä antaa vapaan kuvauksen, päättele luokittelu ja näytä se hyväksyttäväksi.
 
 ## 3. Tarkista luokittelu
-- Yksi päävaihe ja yksi alavaihe.
+- Yksi päävaihe ja yksi alavaihe. Jos harjoite opettaa selvästi myös toista
+  alavaihetta, lisää se `myos_alavaiheet`-kenttään (enintään 2) ja kerro siitä käyttäjälle.
 - Roolit kuuluvat vaiheen `sallitut_roolit`-listaan.
 - Tilanteen lukumäärä ja roolit eivät ole ristiriidassa (2v1 → 1H, 2H vs. 1P).
 - Paineistaminen: ei, passiivinen, puoliaktiivinen tai aktiivinen (sanasto.yml).

@@ -118,8 +118,8 @@ def ika_jarjestys(ika: str) -> int:
     return int(ika[1:])
 
 
-def kaytetyt_vaiheet(harjoitteet: list[dict]) -> set[str]:
-    return {h["vaihe"] for h in harjoitteet}
+def kaytetyt_vaiheet(harjoitteet: list[dict]) -> list[str]:
+    return list(dict.fromkeys(v for h in harjoitteet for v in h["kaikki_vaiheet"]))
 
 
 def suodatinvalinnat(s: dict, sn: "Sanasto", harjoitteet: list[dict]) -> dict:
@@ -132,8 +132,8 @@ def suodatinvalinnat(s: dict, sn: "Sanasto", harjoitteet: list[dict]) -> dict:
     roolit = {r for p in pk for r in p["roolit"] + (p.get("vastaroolit") or [])}
     return {
         "vaiheet": [(k, v["nimi"], [(a, at["nimi"]) for a, at in v["alavaiheet"].items()
-                                     if a in kaytetyt("alavaihe")])
-                    for k, v in sn.vaiheet.items() if k in kaytetyt("vaihe")],
+                                     if a in kaytetyt("kaikki_alavaiheet")])
+                    for k, v in sn.vaiheet.items() if k in kaytetyt("kaikki_vaiheet")],
         "alueet": [(k, v) for k, v in s["alueet"].items() if k in kaytetyt("alue")],
         "tilanteet": [t for t in s["pelin_keskus"]["tilanteet"] if t in tilanteet],
         "roolit": [r for r in sn.roolit if r in roolit],
@@ -150,6 +150,10 @@ def rakenna() -> int:
         s = yaml.safe_load(f)
     sn = Sanasto(s)
     harjoitteet = lue_harjoitteet(s)
+    # Pää- ja toissijaiset alavaiheet (myos_alavaiheet) sekä niiden vaiheet.
+    for h in harjoitteet:
+        h["kaikki_alavaiheet"] = [h["alavaihe"]] + list(h.get("myos_alavaiheet") or [])
+        h["kaikki_vaiheet"] = list(dict.fromkeys(sn.alavaiheet[a][0] for a in h["kaikki_alavaiheet"]))
 
     if KOHDE.exists():
         shutil.rmtree(KOHDE)
@@ -168,10 +172,10 @@ def rakenna() -> int:
     # Etusivu: vaiheet kortteina (sanaston järjestyksessä, myös tyhjät).
     vaihekortit = []
     for vk, v in sn.vaiheet.items():
-        omat = [h for h in harjoitteet if h["vaihe"] == vk]
+        omat = [h for h in harjoitteet if vk in h["kaikki_vaiheet"]]
         vaihekortit.append({
             "avain": vk, "nimi": v["nimi"], "maara": len(omat),
-            "alavaiheet": [(a, at["nimi"], sum(h["alavaihe"] == a for h in omat))
+            "alavaiheet": [(a, at["nimi"], sum(a in h["kaikki_alavaiheet"] for h in omat))
                            for a, at in v["alavaiheet"].items()],
         })
     (KOHDE / "index.html").write_text(env.get_template("etusivu.html").render(
@@ -189,8 +193,8 @@ def rakenna() -> int:
 
     # Vaihesivut: alavaihenapit ja lista ryhmiteltynä alavaiheittain.
     for vk in kaytetyt_vaiheet(harjoitteet):
-        omat = [h for h in harjoitteet if h["vaihe"] == vk]
-        ryhmat = [(a, at["nimi"], [h for h in omat if h["alavaihe"] == a])
+        omat = [h for h in harjoitteet if vk in h["kaikki_vaiheet"]]
+        ryhmat = [(a, at["nimi"], [h for h in omat if a in h["kaikki_alavaiheet"]])
                   for a, at in sn.vaiheet[vk]["alavaiheet"].items()]
         ryhmat = [r for r in ryhmat if r[2]]
         kohde = KOHDE / "vaiheet" / vk
@@ -214,13 +218,14 @@ def rakenna() -> int:
         if h["kaavio"]:
             shutil.copy2(h["kansio"] / "kaavio.svg", kohde / "kaavio.svg")
         vp = sn.vastinpari(h["alavaihe"])
-        vastinparin = [x for x in harjoitteet if vp and x["alavaihe"] == vp]
+        vastinparin = [x for x in harjoitteet if vp and vp in x["kaikki_alavaiheet"]]
         (kohde / "index.html").write_text(pohja.render(
             **yhteiset, juuri="../../", h=h, vastinpari=vp, vastinparin=vastinparin,
             otsikko=h["nimi"]), encoding="utf-8")
 
     # Koneluettava hakemisto muille työkaluille.
-    hakemisto = [{k: v for k, v in h.items() if k not in ("kansio", "runko_html", "variaatiot_html")}
+    hakemisto = [{k: v for k, v in h.items() if k not in ("kansio", "runko_html", "variaatiot_html",
+                                                          "kaikki_alavaiheet", "kaikki_vaiheet")}
                  | {"osoite": f"harjoitteet/{h['tunniste']}/"} for h in harjoitteet]
     (KOHDE / "harjoitteet.json").write_text(
         json.dumps(hakemisto, ensure_ascii=False, indent=1), encoding="utf-8")

@@ -93,7 +93,7 @@
 </form>
 
 <p id="maara" class="maara" aria-live="polite">{{ harjoitteet | length }} harjoitetta</p>
-{% for a, nimi, lista in ryhmat %}
+{% for ryhma, nimi, lista in ryhmat %}
 <section class="ryhma">
   {% if nimi %}<h2 class="ryhmaotsikko">{{ nimi }}</h2>{% endif %}
   <ul class="kortit">
