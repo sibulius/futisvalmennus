@@ -22,7 +22,7 @@ maalivahdin ohi.
 
 ## Järjestelyt
 - Alue noin 22 × 18 m ison maalin edessä (rangaistusalue ja sen edusta).
-- Kartioportti, jonka kartiot ovat noin 3 metrin päässä toisistaan, noin
+- Kartioportti, jonka kartiot ovat noin metrin päässä toisistaan, noin
   12–14 metrin päähän maalista viistosti maalin sivulle.
 - Hyökkääjät jonottavat palloineen portin takana viistosti, noin 5–6 metrin
   päässä portista. Maalivahti maalissa.

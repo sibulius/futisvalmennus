@@ -14,13 +14,13 @@ k.p(21.1, 11, "V", "MV")
 k.p(5.6, 4.0, "A", "H"); k.ball(6.4, 4.9)
 k.queue(4.0, 2.6, "A", 2, dx=-1.6, dy=-1.3)
 # kartioportti: pallo työnnetään kartioiden välistä, pelaaja kiertää alemman kartion
-k.cone(11.0, 7.0); k.cone(8.8, 10.0)
+k.cone(10.34, 7.47); k.cone(9.68, 8.23)
 k.arrow(6.8, 5.2, 8.6, 6.4, "drib")                    # kuljetus kohti porttia
-k.arrow(8.8, 6.8, 11.6, 9.2, "pass")                   # pallo kartioiden välistä
-x1, y1, cx, cy, x2, y2 = k.X(8.0), k.Y(7.0), k.X(7.4), k.Y(13.6), k.X(11.2), k.Y(10.4)
+k.arrow(8.8, 6.8, 11.8, 9.4, "pass")                   # pallo kartioiden välistä
+x1, y1, cx, cy, x2, y2 = k.X(8.2), k.Y(7.0), k.X(8.2), k.Y(11.4), k.X(11.4), k.Y(10.2)
 k.el.append(f'<path d="M{x1},{y1} Q{cx},{cy} {x2},{y2}" fill="none" stroke="#111111" '
             f'stroke-width="2.5" marker-end="url(#ah-run)"/>')     # juoksu kartion ympäri
-k.arrow(12.2, 9.8, 21.4, 9.4, "shot")                 # laukaus
+k.arrow(12.4, 9.9, 21.4, 9.4, "shot")                 # laukaus
 k.dim("n. 22 m", "n. 18 m")
 k.save(str(TAMA / "kaavio.svg"),
        [("A", "hyökkääjät"), ("V", "maalivahti"), ("drib", "kuljetus"),
