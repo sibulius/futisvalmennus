@@ -1,0 +1,69 @@
+{% extends "pohja.html" %}
+{% block sisalto %}
+<h1>Harjoitteet</h1>
+<p class="johdanto">Avoin jalkapallon harjoitepankki. Harjoitteet on luokiteltu pelin vaiheiden,
+alavaiheiden ja pelin keskuksen roolien mukaan – ks. <a href="sanasto/">sanasto</a>.</p>
+
+<form id="suodattimet" class="suodattimet" role="search">
+  <label class="leveä">Haku
+    <input type="search" name="haku" placeholder="Nimi tai painopiste">
+  </label>
+  <label>Vaihe
+    <select name="vaihe"><option value="">Kaikki</option>
+      {% for k, nimi, _ in suodattimet.vaiheet %}<option value="{{ k }}">{{ nimi }}</option>{% endfor %}
+    </select>
+  </label>
+  <label>Alavaihe
+    <select name="alavaihe"><option value="">Kaikki</option>
+      {% for k, _, alat in suodattimet.vaiheet %}{% for a, nimi in alat %}
+      <option value="{{ a }}" data-vaihe="{{ k }}">{{ nimi }}</option>{% endfor %}{% endfor %}
+    </select>
+  </label>
+  <label>Alue
+    <select name="alue"><option value="">Kaikki</option>
+      {% for k, nimi in suodattimet.alueet %}<option value="{{ k }}">{{ nimi }}</option>{% endfor %}
+    </select>
+  </label>
+  <label>Tilanne
+    <select name="tilanne"><option value="">Kaikki</option>
+      {% for t in suodattimet.tilanteet %}<option>{{ t }}</option>{% endfor %}
+    </select>
+  </label>
+  <label>Rooli
+    <select name="rooli"><option value="">Kaikki</option>
+      {% for r in suodattimet.roolit %}<option value="{{ r }}">{{ r }} – {{ sn.roolit[r] }}</option>{% endfor %}
+    </select>
+  </label>
+  <label>Paineistaminen
+    <select name="paineistaminen"><option value="">Kaikki</option>
+      {% for k, nimi in suodattimet.paineet %}<option value="{{ k }}">{{ nimi }}</option>{% endfor %}
+    </select>
+  </label>
+  <label>Ikäluokka
+    <select name="ika"><option value="">Kaikki</option>
+      {% for i in suodattimet.iat %}<option>{{ i }}</option>{% endfor %}
+    </select>
+  </label>
+  {% if suodattimet.kaistat %}
+  <label>Kaista
+    <select name="kaista"><option value="">Kaikki</option>
+      {% for k, nimi in suodattimet.kaistat %}<option value="{{ k }}">{{ nimi }}</option>{% endfor %}
+    </select>
+  </label>
+  {% endif %}
+  <label>Kesto enintään (min)
+    <input type="number" name="kesto" min="1" max="120" inputmode="numeric">
+  </label>
+  <label>Pelaajia käytettävissä
+    <input type="number" name="pelaajat" min="1" max="40" inputmode="numeric">
+  </label>
+  <button type="reset">Tyhjennä</button>
+</form>
+
+<p id="maara" class="maara" aria-live="polite">{{ harjoitteet | length }} harjoitetta</p>
+<ul id="lista" class="kortit">
+  {% for h in harjoitteet %}{% include "kortti.html" %}{% endfor %}
+</ul>
+<p id="tyhja" class="tyhja" hidden>Ei harjoitteita näillä valinnoilla.</p>
+{% endblock %}
+{% block skriptit %}<script src="staattinen/suodatus.js"></script>{% endblock %}

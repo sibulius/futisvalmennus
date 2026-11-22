@@ -21,6 +21,8 @@ harjoitteet/
 schema/harjoite.schema.json # frontmatterin rakenne
 tools/tarkista.py           # tarkistus (ajetaan myös GitHub Actionsissa)
 tools/kaavio.py             # kaaviokirjasto (tyyli D)
+tools/sivusto.py            # verkkosivun generaattori (GitHub Pages) → _site/
+sivusto/                    # sivuston pohjat (Jinja2), tyylit ja suodatus-JS
 ```
 
 ## Toimintaohjeet
@@ -48,6 +50,9 @@ tools/kaavio.py             # kaaviokirjasto (tyyli D)
   (`"C"`), maalivahdit vihreitä (`"V"`), valmentaja harmaa (`"K"`).
 - Aja `python tools/tarkista.py` aina harjoitteen tai sanaston muuttamisen jälkeen
   ja korjaa virheet ennen committia.
+- Verkkosivu (GitHub Pages) generoidaan mainista automaattisesti
+  (`.github/workflows/sivusto.yml`). Esikatselu: `python tools/sivusto.py --serve`.
+  Näkyvät nimet tulevat `sanasto.yml`:stä – älä kirjoita luokkien nimiä pohjiin.
 
 ## Tärkeät termit
 
@@ -61,6 +66,12 @@ tools/kaavio.py             # kaaviokirjasto (tyyli D)
 Repo on julkinen. Älä koskaan kirjoita tänne pelaajien nimiä, poissaoloja,
 terveystietoja tai muita joukkuekohtaisia tietoja. Ne kuuluvat yksityiseen
 joukkuerepoon, joka viittaa tämän pankin harjoitteisiin tunnisteella.
+
+Kaikki `harjoitteet/<tunniste>/`-kansioiden `harjoite.md`, `variaatiot.md` ja
+`kaavio.svg` sekä `sanasto.yml` julkaistaan myös verkkosivulla, jonka hakukoneet
+indeksoivat. Generaattori julkaisee vain nämä tiedostot (sallittujen lista
+`tools/sivusto.py`:ssä); älä laajenna listaa ilman käyttäjän lupaa. Sivulle ei
+lisätä analytiikkaa, evästeitä eikä ulkoisia skriptejä tai fontteja.
 
 ## Kieli
 

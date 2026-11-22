@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ otsikko }} – Futisvalmennus: harjoitepankki</title>
+<meta name="description" content="{% block kuvaus %}Avoin jalkapallon harjoitepankki valmentajille. Harjoitteet luokiteltuna pelin vaiheiden ja pelin keskuksen roolien mukaan.{% endblock %}">
+<link rel="stylesheet" href="{{ juuri }}staattinen/tyyli.css">
+</head>
+<body>
+<header class="ylapalkki">
+  <a class="logo" href="{{ juuri }}">⚽ Harjoitepankki</a>
+  <nav>
+    <a href="{{ juuri }}">Harjoitteet</a>
+    <a href="{{ juuri }}sanasto/">Sanasto</a>
+    <a href="https://github.com/{{ repo }}">GitHub</a>
+  </nav>
+</header>
+<main>
+{% block sisalto %}{% endblock %}
+</main>
+<footer class="alapalkki">
+  <p>Harjoitteet ja sanasto: <a href="https://creativecommons.org/licenses/by/4.0/deed.fi">CC BY 4.0</a> ·
+  Lähde ja muutosehdotukset: <a href="https://github.com/{{ repo }}">github.com/{{ repo }}</a></p>
+</footer>
+{% block skriptit %}{% endblock %}
+</body>
+</html>

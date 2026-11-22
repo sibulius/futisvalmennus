@@ -1,0 +1,43 @@
+{% extends "pohja.html" %}
+{% block sisalto %}
+<h1>Sanasto</h1>
+<p class="johdanto">Harjoitteiden luokittelun sallitut arvot. Lähde:
+<a href="https://github.com/{{ repo }}/blob/{{ haara }}/sanasto.yml"><code>sanasto.yml</code></a>.</p>
+
+<h2>Pelin vaiheet ja alavaiheet</h2>
+{% for vk, v in s.vaiheet.items() %}
+<section class="vaihe">
+  <h3>{{ v.nimi }}</h3>
+  {% if v.sallitut_roolit %}<p class="pieni">Sallitut roolit: {{ v.sallitut_roolit | join(", ") }}</p>{% endif %}
+  <dl>
+  {% for ak, a in v.alavaiheet.items() %}
+    <dt><a href="../?alavaihe={{ ak }}">{{ a.nimi }}</a></dt>
+    <dd>{% if a.tavoite %}{{ a.tavoite }}{% endif %}
+      {% if a.alue %}<br><span class="pieni">Alue: {{ s.alueet[a.alue] }}</span>{% endif %}
+      {% if a.vastinpari %}<span class="pieni"> · Vastinpari: {{ sn.alavaihe(a.vastinpari) }}</span>{% endif %}
+    </dd>
+  {% endfor %}
+  </dl>
+</section>
+{% endfor %}
+
+<h2>Pelin keskus</h2>
+<table class="luokittelu">
+  {% for r, nimi in sn.roolit.items() %}<tr><th>{{ r }}</th><td>{{ nimi }}</td></tr>{% endfor %}
+</table>
+<p>Tilanteet (hyökkääjät v puolustajat): {{ s.pelin_keskus.tilanteet | join(", ") }}</p>
+
+<h2>Kenttäalueet</h2>
+<ul>{% for k, nimi in s.alueet.items() %}<li>{{ nimi }}</li>{% endfor %}</ul>
+
+<h2>Kaistat</h2>
+<table class="luokittelu">
+  {% for k, v in s.kaistat.items() %}<tr><th>{{ v.lyhenne }}</th><td>{{ v.nimi }}</td></tr>{% endfor %}
+</table>
+
+<h2>Paineistaminen</h2>
+<dl>{% for k, kuvaus in s.paineistaminen.items() %}<dt>{{ sn.paine(k) }}</dt><dd>{{ kuvaus }}</dd>{% endfor %}</dl>
+
+<h2>Luokittelusäännöt</h2>
+<ul>{% for r in s.saannot %}<li>{{ r }}</li>{% endfor %}</ul>
+{% endblock %}
