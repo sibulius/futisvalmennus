@@ -3,6 +3,7 @@ tunniste: alueen-puolustaminen-2v2
 nimi: Alueen puolustaminen 2v2
 vaihe: puolustaminen
 alavaihe: syvyyden_puolustaminen
+myos_alavaiheet: [prassaaminen]
 alue: oma_kolmannes
 paineistaminen: aktiivinen
 kaistat: [vasen_laitakaista, keskikaista, oikea_laitakaista]

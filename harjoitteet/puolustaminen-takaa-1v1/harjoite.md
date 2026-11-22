@@ -3,6 +3,7 @@ tunniste: puolustaminen-takaa-1v1
 nimi: Puolustaminen takaa 1v1
 vaihe: puolustaminen
 alavaihe: syvyyden_puolustaminen
+myos_alavaiheet: [prassaaminen]
 alue: oma_kolmannes
 paineistaminen: aktiivinen
 pelin_keskus:

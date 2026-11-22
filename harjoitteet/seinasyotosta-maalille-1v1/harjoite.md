@@ -3,6 +3,7 @@ tunniste: seinasyotosta-maalille-1v1
 nimi: Seinäsyötöstä maalille 1v1
 vaihe: hyokkaaminen
 alavaihe: murtautuminen
+myos_alavaiheet: [ohittaminen, viimeistely]
 alue: hyokkayskolmannes
 paineistaminen: aktiivinen
 kaistat: []

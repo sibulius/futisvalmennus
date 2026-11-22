@@ -3,6 +3,7 @@ tunniste: karkupallo-1v1
 nimi: Karkupallo 1v1
 vaihe: tekniikka
 alavaihe: kuljettaminen
+myos_alavaiheet: [kaantyminen]
 paineistaminen: passiivinen
 painopiste: Tiukka käännös kartion ympäri pallo lähellä jalkaa ja kiihdytys suoralla
 ika: [U12, U13]

@@ -3,6 +3,7 @@ tunniste: hyokkaaminen-alueelle-1v1
 nimi: Hyökkääminen alueelle 1v1
 vaihe: hyokkaaminen
 alavaihe: murtautuminen
+myos_alavaiheet: [ohittaminen]
 alue: hyokkayskolmannes
 paineistaminen: aktiivinen
 kaistat: [vasen_laitakaista, keskikaista, oikea_laitakaista]
